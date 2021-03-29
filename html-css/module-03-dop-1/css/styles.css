@@ -24,13 +24,13 @@ body{
 
 .article__section{
     width: 470px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    padding: 30px 20px 25px 20px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
 
 }
 .article__block{
     width: 470px;
     display: inline-block;
-
 }
 .article__img{
     width: 470px;
@@ -54,5 +54,15 @@ body{
 
 .articles__section{
     width: 960px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    padding: 30px 20px 25px 19px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.articles__block{
+    width: 470px;
+    display: inline-block;
+    margin-right: 16px;
+}
+.articles__block:last-child{
+    margin-right: 0;
 }
