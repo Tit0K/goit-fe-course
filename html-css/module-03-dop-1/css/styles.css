@@ -90,14 +90,16 @@ body{
 .articles__block{
     width: 425px;
     padding-top: 34px;
-    padding-left: 0px;
-    margin-left: 61px;
+    margin-right: 61px;
     display: inline-block;
 }
 
 .articles__block:first-child{
-    padding-left: 23px;
-    margin-left: 0px;
+    padding-left: 23px;    
+}
+
+.articles__block:last-child{
+    margin-right: 0px;    
 }
 
 .articles__img{
