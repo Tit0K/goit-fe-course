@@ -2,6 +2,18 @@ body{
     font-family: 'Playfair Display', serif;
 }
 
+.task_title{
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+/* ---------------------------------- */
+.menu__wrapper{
+    height: 25px;
+}
 .menu{
     text-align: center;
 }
@@ -16,7 +28,8 @@ body{
     text-decoration: none;
 }
 
-.menu__item_element:hover{
+.menu__item_element:hover,
+.menu__item_element:focus{
     color: blue;    
 }
 
@@ -24,45 +37,81 @@ body{
 
 .article__section{
     width: 470px;
-    padding: 30px 20px 25px 20px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 
+    0 1px 5px 0 rgb(0 0 0 / 12%), 
+    0 3px 1px -2px rgb(0 0 0 / 20%);
+    margin: 0 auto;
+    display: block;
+}
 
-}
 .article__block{
-    width: 470px;
-    display: inline-block;
+    width: 430px;
+    padding-top: 34px;
+    margin: 0 auto;
 }
+
 .article__img{
-    width: 470px;
+    width: 430px;
     height: 316px;
+    padding-bottom: 32px;
 }
 
 .article__type{
     text-transform: uppercase;
     color: #c4c0bb;
+    padding-bottom: 31px;
 }
 
 .article__title{
+    font-size: 22px;
     color: #646464;
+    padding-bottom: 42px;
 }
 
 .article__description{
     color: #7a7a7a;
+    font-size: 15px;
+    padding-bottom: 34px;
 }
 
 /* ---------------------------------- */
 
 .articles__section{
     width: 960px;
-    padding: 30px 20px 25px 19px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 
+    0 1px 5px 0 rgb(0 0 0 / 12%), 
+    0 3px 1px -2px rgb(0 0 0 / 20%);
+    margin: 0 auto;
+    display: block;
 }
 
 .articles__block{
-    width: 470px;
+    width: 425px;
+    padding-top: 34px;
+    padding-left: 0px;
+    margin-left: 61px;
     display: inline-block;
-    margin-right: 16px;
 }
-.articles__block:last-child{
-    margin-right: 0;
+
+.articles__block:first-child{
+    padding-left: 23px;
+    margin-left: 0px;
+}
+
+.articles__img{
+    width: 425px;
+    height: 284px;
+    padding-bottom: 47px;
+}
+
+/* ---------------------------------- */
+
+.selectors__wrapper{
+    padding-bottom: 20px;    
+}
+.selectors__element{
+    font-size: 20px;
+    text-align: center;
 }

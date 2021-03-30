@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    <h2>Задание 1</h2>
+    <h2 class="task_title">Задание 1</h2>
     <div class="menu__wrapper">
         <section class="menu__section">
             <nav class="menu">
@@ -30,7 +31,7 @@
         </section>
     </div>
 
-    <h2>Задание 2</h2>
+    <h2 class="task_title">Задание 2</h2>
     <div class="article__wrapper">
         <section class="article__section">
             <article class="article__block">
@@ -48,11 +49,11 @@
         </section>
     </div>
 
-    <h2>Задание 3</h2>
+    <h2 class="task_title">Задание 3</h2>
     <div class="article__wrapper">
         <section class="articles__section">
             <article class="articles__block">
-                <img src="img/block1.jpg" alt="Girl" class="article__img">
+                <img src="img/block1.jpg" alt="Girl" class="articles__img">
                 <p class="article__type">Lifestyle</p>
                 <h2 class="article__title">More than just a music festival</h2>
                 <p class="article__description">
@@ -63,9 +64,8 @@
                     eveniet quam praesentium.
                 </p>
             </article>
-
             <article class="articles__block">
-                <img src="img/block2.jpg" alt="Cap of tea" class="article__img">
+                <img src="img/block2.jpg" alt="Cup of tea" class="articles__img">
                 <p class="article__type">Lifestyle</p>
                 <h2 class="article__title">Life tastes better with coffee</h2>
                 <p class="article__description">
@@ -78,12 +78,16 @@
             </article>
         </section>
     </div>
-    <h2>Задание 4</h2>
-    <ul>
-        <li>#myid:focus | 1.1.0</li>
-        <li>.menu > li > a:hover | 0.2.2</li>
-        <li>#myid > ul > li a:hover | 1.1.3</li>
-    </ul>
+
+    <h2 class="task_title">Задание 4</h2>
+    <div class="selectors__wrapper">
+        <ul>
+            <li class="selectors__element">#myid:focus | 0,1,1,0</li>
+            <li class="selectors__element">.menu > li > a:hover | 0,0,2,2</li>
+            <li class="selectors__element">#myid > ul > li a:hover | 0,1,1,3</li>
+        </ul>
+    </div>
+
 </body>
 
 </html>
