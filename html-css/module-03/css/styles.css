@@ -31,8 +31,16 @@ html{
     text-transform: uppercase;
 }
 
-.menu__item:not(:last-child){
+.menu__item:nth-child(1){
     margin-right: 120px;
+}
+
+.menu__item:nth-child(2){
+    margin-right: 102px; 
+}
+
+.menu__item:nth-child(3){
+    margin-right: 94px; 
 }
 
 .menu__link{
