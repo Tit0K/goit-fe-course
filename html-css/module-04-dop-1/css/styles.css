@@ -1,0 +1,99 @@
+.clearfix::after { 
+    content: ""; /* Генерируем пустой элемент */
+    clear: both; /* Отменяем обтекание*/
+    display: block; /* Блочный элемент */
+  }
+
+  .task_title{
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+/* ----------[Task 1]---------- */
+
+.task1__item{
+    float: left;
+    margin-right: 10px;
+}
+
+.task1__item:last-child{
+    margin-right: 0px;
+}
+
+.task1__item_element{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.task1__item_element:hover,
+.task1__item_element:focus{
+    color: red;
+}
+
+/* ----------[Task 2]---------- */
+
+.task2__item{
+    width: 100px;
+}
+
+.task2__item:nth-child(3n+1){
+    background-color: #88292F;
+}
+
+.task2__item:nth-child(3n+2){
+    background-color: #5DB7DE;
+}
+
+.task2__item:nth-child(3n+3){
+    background-color: #0D5D56;
+}
+
+.task2__item:last-child{
+    margin-bottom: 0px;
+}
+
+.task2__item_element{
+    text-decoration: none;
+    font-size: 20px;
+    color: #0E1116;
+}
+
+/* ----------[Task 3]---------- */
+
+.task3__item_element{
+    text-decoration: none;
+    font-size: 20px;
+    color: #0E1116;
+}
+
+.task3__item_element::before{
+    content: "\2192";
+    color: red;
+}
+
+/* ----------[Task 4]---------- */
+
+.task4_section{
+    counter-reset: count-list;
+}
+
+.task4__item:before{
+    counter-increment: count-list;
+    content: counter(count-list, upper-roman);
+    width: 50px;
+    line-height: 50px;
+    margin-right: 20px;
+    background-color: chartreuse;
+    display: inline-block;
+    text-align: center;
+}
+
+.task4__item_element{
+    text-decoration: none;
+    font-size: 20px;
+    color: #0E1116;
+}
