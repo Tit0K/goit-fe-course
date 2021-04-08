@@ -1,0 +1,256 @@
+.clearfix::after { 
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+.container{
+    width: 1110px;
+    margin: 0 auto;
+    padding-top: 36px;
+}
+
+/* --------[MENU SECTION]-------- */
+
+.menu_section{
+    margin-bottom: 105px;    
+}
+
+.logo{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #555252;
+    font-size: 30px;
+    line-height: 1.067;
+    float: left;
+}
+
+.logo:first-letter{
+    color: #1abc9c;
+    font-family: 'Roboto Black', sans-serif;
+}
+
+.menu{
+    padding-top: 5px;
+    float: right;
+}
+
+.menu__item{
+    display: inline;
+}
+
+.menu__item:nth-child(1){
+    margin-right: 33px;
+}
+
+.menu__item:nth-child(2){
+    margin-right: 37px;
+}
+
+.menu__item:nth-child(3){
+    margin-right: 30px;
+}
+
+.menu__item:nth-child(4){
+    margin-right: 27px;
+}
+
+.menu__item:nth-child(5){
+    margin-right: 34px;
+}
+
+.menu__link{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0f0101;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.menu__link:hover,.menu__link:focus{
+    color: #1abc9c;
+}
+
+/* --------[PRODUCTS SECTION]-------- */
+
+.products_section{
+    margin-bottom: 105px;
+}
+
+.products_header::after{
+    content: "";
+    background-color: rgb(26, 188, 156);
+    display: block;
+    width: 164px;
+    height: 7px;
+    margin-top: 32px;
+    margin-left: 473px;
+    margin-bottom: 92px;
+}
+.products_header__title{
+    font-size: 48px;
+    font-family: 'Roboto Black', sans-serif;
+    color: rgb(81, 81, 81);
+    text-transform: uppercase;
+    line-height: 0.667;
+    text-align: center;
+}
+
+.product_box{
+    width: 255px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.product_box:hover .product_name_block{
+    background-color: #1abc9c;
+}
+
+.product_box:hover .product_price_block{
+    background-color: #7fd9c7;
+}
+
+.product_box:nth-child(4n){
+    margin-right: 0px;
+}
+
+.product_box:nth-last-child(-n+4){
+    margin-bottom: 0px;
+}
+
+.product_img_block{
+    height: 282px;
+    background-color: #e8effc;
+}
+.product_img{
+    display: block;
+    margin: 0 auto;
+    max-width: 255px;
+    max-height: 282px;
+}
+
+.product_name_block{
+    width: 201px;
+    height: 40px;
+    background-color: #323232;
+    float: left;
+    font-weight: bold;
+}
+
+.product_name{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-family: 'Roboto Black', sans-serif;
+    text-transform: uppercase;
+    line-height: 1.778;
+    display: inline-block;
+    padding-left: 14px;
+    padding-top: 4px;
+}
+
+.product_price::before{
+    content: "$";
+}
+
+.product_price{
+    font-size: 18px;
+    line-height: 1.778;
+    text-transform: uppercase;
+    font-family: 'Roboto Black', sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 12px;
+    padding-top: 4px;
+}
+
+.product_price_block{
+    width: 54px;
+    height: 40px;
+    background-color: #8c8c8c;
+    float: right;
+    color: rgb(255, 255, 255);
+}
+
+/* --------[NEWS SECTION]-------- */
+
+.news_section{
+    margin-bottom: 82px;
+}
+
+.news_header::after{
+    content: "";
+    background-color: rgb(26, 188, 156);
+    display: inline-block;
+    width: 164px;
+    height: 7px;
+    margin-top: 32px;
+    margin-left: 473px;
+    margin-bottom: 82px;
+}
+.news_header__title{
+    font-size: 48px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(81, 81, 81);
+    text-transform: uppercase;
+    line-height: 0.667;
+    text-align: center;
+}
+
+.news_article{
+    width: 350px;
+    float: left;
+    margin-right: 30px;
+}
+
+.news_article:nth-child(3n)
+{
+    margin-right: 0px;
+}
+
+.article_img{
+    width: 350px;
+    height: 262px;
+    margin-bottom: 15px;
+}
+
+.article_title{
+    font-size: 18px;
+    font-family: 'Open Sans Semibold', sans-serif;
+    color: rgb(85, 82, 82);
+    line-height: 1.444;
+}
+
+.article_title::after{
+    content: "";
+    background-color: rgb(26, 188, 156);
+    display: block;
+    width: 136px;
+    height: 3px;
+    margin-top: 14px;
+    margin-bottom: 30px;
+}
+
+.article_text{
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(85, 82, 82);
+    line-height: 1.857;
+    margin-bottom: 20px;
+}
+
+.article_button{
+    border: none;
+    border-radius: 2px;
+    background-color: #4ec6ab;
+    font-family: 'Open Sans Light', sans-serif;
+    color: white;
+    font-size: 16px;
+    padding: 20px 42px 20px 42px;
+    cursor: pointer;
+}
+
+.article_button:hover,.article_button:focus{
+    background-color: #44ac95;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
