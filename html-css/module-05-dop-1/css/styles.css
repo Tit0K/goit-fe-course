@@ -1,0 +1,127 @@
+/* ----------[Task 1]---------- */
+
+.wrapper_task1{
+    width: 100%;
+    background: 
+    linear-gradient(rgba(209, 179, 6, 0.3), rgba(209, 179, 6, 0.3)),
+    url(../img/bg_task1.png);
+    background-position: top;
+    height: 100vh;
+    margin-bottom: 100px;
+}
+
+.task1_content{
+    text-align: center;
+    padding-top: 25px;
+}
+
+/* ----------[Task 2]---------- */
+
+.wrapper_task2{
+    margin-bottom: 100px;
+}
+
+.task2_content{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: #444444;
+    margin: 0 auto;
+}
+
+.content__item{
+    background-color: red;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.content__item:nth-child(2){
+    background-color: yellowgreen;
+    left: 150px;
+}
+
+.content__item:nth-child(3){
+    background-color: rgb(83, 28, 155);
+    left: 300px;
+}
+
+.content__item:nth-child(4){
+    background-color: rgb(255, 12, 194);
+    bottom: 150px;
+}
+
+.content__item:nth-child(5){
+    background-color: rgb(174, 177, 34);
+    bottom: 150px;
+    left: 150px;
+}
+
+.content__item:nth-child(6){
+    background-color: rgb(34, 79, 177);
+    bottom: 150px;
+    left: 300px;
+}
+
+.content__item:nth-child(7){
+    background-color: rgb(61, 255, 12);
+    top: 300px;
+}
+
+.content__item:nth-child(8){
+    background-color: rgb(16, 219, 255);
+    top: 300px;
+    left: 150px;
+}
+
+.content__item:nth-child(9){
+    background-color: rgb(177, 34, 165);
+    top: 300px;
+    left: 300px;
+}
+
+/* ----------[Task 3]---------- */
+
+.task3_content{
+    min-height: 500px;
+}
+
+.menu{
+    text-align: center;
+    font-size: 50px;
+}
+
+.menu_item, .sub_menu{
+    display: inline-block;
+    position: relative;
+    background-color: teal;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.menu_item:hover, .menu_item:focus,.sub_menu_item:hover, .sub_menu_item:focus{
+    background-color: tomato;
+}
+
+.menu_item:last-child{
+    margin-right: 0px;
+}
+
+.menu_item__element, .sub_menu_item__element{
+    text-decoration: none;
+    color: white;
+}
+
+.sub_menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+
+.sub_menu_item{
+    border-top: 2px solid black;
+}
+
+.menu_item:hover > .sub_menu{
+    display: block;
+}
