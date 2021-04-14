@@ -12,7 +12,7 @@
 
 /* --------[MENU SECTION]-------- */
 
-.menu_section{
+.menu_header{
     margin-bottom: 105px;    
 }
 
@@ -76,7 +76,9 @@
 .products_section{
     margin-bottom: 105px;
 }
-
+.products_header{
+    margin-bottom: 92px;
+}
 .products_header::after{
     content: "";
     background-color: rgb(26, 188, 156);
@@ -85,7 +87,6 @@
     height: 7px;
     margin-top: 32px;
     margin-left: 473px;
-    margin-bottom: 92px;
 }
 .products_header__title{
     font-size: 48px;
@@ -147,10 +148,6 @@
     display: inline-block;
     padding-left: 14px;
     padding-top: 4px;
-}
-
-.product_price::before{
-    content: "$";
 }
 
 .product_price{
