@@ -3,7 +3,7 @@
 .wrapper_task1{
     width: 100%;
     background: 
-    linear-gradient(rgba(209, 179, 6, 0.3), rgba(209, 179, 6, 0.3)),
+    linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.3)),
     url(../img/bg_task1.png);
     background-position: top;
     height: 100vh;
@@ -38,46 +38,42 @@
 
 .content__item:nth-child(2){
     background-color: yellowgreen;
-    left: 150px;
+    transform: translate(150%, 0%);
 }
 
 .content__item:nth-child(3){
     background-color: rgb(83, 28, 155);
-    left: 300px;
+    transform: translate(300%, 0%);
 }
 
 .content__item:nth-child(4){
     background-color: rgb(255, 12, 194);
-    bottom: 150px;
+    transform: translate(0%, 150%);
 }
 
 .content__item:nth-child(5){
     background-color: rgb(174, 177, 34);
-    bottom: 150px;
-    left: 150px;
+    transform: translate(150%, 150%);
 }
 
 .content__item:nth-child(6){
     background-color: rgb(34, 79, 177);
-    bottom: 150px;
-    left: 300px;
+    transform: translate(300%, 150%);
 }
 
 .content__item:nth-child(7){
     background-color: rgb(61, 255, 12);
-    top: 300px;
+    transform: translate(0%, 300%);
 }
 
 .content__item:nth-child(8){
     background-color: rgb(16, 219, 255);
-    top: 300px;
-    left: 150px;
+    transform: translate(150%, 300%);
 }
 
 .content__item:nth-child(9){
     background-color: rgb(177, 34, 165);
-    top: 300px;
-    left: 300px;
+    transform: translate(300%, 300%);
 }
 
 /* ----------[Task 3]---------- */
