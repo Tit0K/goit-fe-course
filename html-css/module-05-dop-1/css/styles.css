@@ -54,19 +54,22 @@
 
 .content__item:nth-child(4){
     background-color: rgb(255, 12, 194);
-    transform: translateY(150%);
+    bottom: 50%;
+    transform: translateY(50%);
 }
 
 .content__item:nth-child(5){
     background-color: rgb(174, 177, 34);
-    left: 50%;
-    transform: translate(-50%) translateY(150%);
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%) translateY(50%);
 }
 
 .content__item:nth-child(6){
     background-color: rgb(34, 79, 177);
     right: 0%;
-    transform: translateY(150%);
+    bottom: 50%;
+    transform: translateY(50%);
 }
 
 .content__item:nth-child(7){
