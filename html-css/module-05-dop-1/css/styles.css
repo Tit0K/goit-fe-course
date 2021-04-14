@@ -6,7 +6,7 @@
     linear-gradient(
         to right, 
         rgba(0, 0, 0) 0%,
-        rgb(0, 0, 0,0.3)
+        rgb(0, 0, 0,0.3) 100%
     ),
     url(../img/bg_task1.png) no-repeat;
     background-size: cover;
