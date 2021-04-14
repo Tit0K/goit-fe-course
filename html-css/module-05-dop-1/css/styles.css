@@ -3,7 +3,11 @@
 .wrapper_task1{
     width: 100%;
     background: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.3)),
+    linear-gradient(
+        to right, 
+        rgba(0, 0, 0) 0%,
+        rgb(0, 0, 0,0.3)
+    ),
     url(../img/bg_task1.png) no-repeat;
     background-size: cover;
     background-position: top;
@@ -40,8 +44,7 @@
 .content__item:nth-child(2){
     background-color: yellowgreen;
     left: 50%;
-    right: 50%;
-    transform: translate(-50%) translateY(0%);
+    transform: translateX(-50%);
 }
 
 .content__item:nth-child(3){
@@ -51,20 +54,19 @@
 
 .content__item:nth-child(4){
     background-color: rgb(255, 12, 194);
-    transform: translate(0%) translateY(150%);
+    transform: translateY(150%);
 }
 
 .content__item:nth-child(5){
     background-color: rgb(174, 177, 34);
     left: 50%;
-    right: 50%;
     transform: translate(-50%) translateY(150%);
 }
 
 .content__item:nth-child(6){
     background-color: rgb(34, 79, 177);
     right: 0%;
-    transform: translate(0%) translateY(150%);
+    transform: translateY(150%);
 }
 
 .content__item:nth-child(7){
@@ -76,8 +78,7 @@
     background-color: rgb(16, 219, 255);
     bottom: 0%;
     left: 50%;
-    right: 50%;
-    transform: translate(-50%) translateY(0%);
+    transform: translate(-50%);
 }
 
 .content__item:nth-child(9){
