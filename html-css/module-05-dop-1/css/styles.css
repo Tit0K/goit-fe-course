@@ -3,8 +3,9 @@
 .wrapper_task1{
     width: 100%;
     background: 
-    linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.3)),
-    url(../img/bg_task1.png);
+    linear-gradient(to right, rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.3)),
+    url(../img/bg_task1.png) no-repeat;
+    background-size: cover;
     background-position: top;
     height: 100vh;
     margin-bottom: 100px;
@@ -38,42 +39,51 @@
 
 .content__item:nth-child(2){
     background-color: yellowgreen;
-    transform: translate(150%, 0%);
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%) translateY(0%);
 }
 
 .content__item:nth-child(3){
     background-color: rgb(83, 28, 155);
-    transform: translate(300%, 0%);
+    right: 0%;
 }
 
 .content__item:nth-child(4){
     background-color: rgb(255, 12, 194);
-    transform: translate(0%, 150%);
+    transform: translate(0%) translateY(150%);
 }
 
 .content__item:nth-child(5){
     background-color: rgb(174, 177, 34);
-    transform: translate(150%, 150%);
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%) translateY(150%);
 }
 
 .content__item:nth-child(6){
     background-color: rgb(34, 79, 177);
-    transform: translate(300%, 150%);
+    right: 0%;
+    transform: translate(0%) translateY(150%);
 }
 
 .content__item:nth-child(7){
     background-color: rgb(61, 255, 12);
-    transform: translate(0%, 300%);
+    bottom: 0%;
 }
 
 .content__item:nth-child(8){
     background-color: rgb(16, 219, 255);
-    transform: translate(150%, 300%);
+    bottom: 0%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%) translateY(0%);
 }
 
 .content__item:nth-child(9){
     background-color: rgb(177, 34, 165);
-    transform: translate(300%, 300%);
+    right: 0%;
+    bottom: 0%;
 }
 
 /* ----------[Task 3]---------- */
