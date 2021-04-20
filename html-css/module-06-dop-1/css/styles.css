@@ -64,9 +64,8 @@
 }
 
 .gallery_box:hover>.image_gallery_box{
-    transition-property: filter;
+    
     filter: grayscale(0%);
-    transition-duration: 1s;
 }
 
 .gallery_box:hover{
@@ -76,9 +75,8 @@
 .image_gallery_box{
     width: 200px;
     margin-bottom: 10px;
-    transition-property: filter;
     filter: grayscale(100%);
-    transition-duration: 1s;
+    transition: filter 0.2s ease-in;
 }
 
 .title_gallery_box::before{
@@ -150,29 +148,21 @@
 .box_image_author{
     width: 100px;
     margin-bottom: 12px;
-    transition-property: transform;
-    transition-duration: 2s;
+    transition: transform 0.2s ease-in;
 }
 
-.box_image_author:hover{
-    transition-property: transform;
-    transform: rotate(5deg);
-    transition-duration: 2s;    
-}
+.box_image_author:hover{transform: rotate(5deg);}
 
 .name_author{
     font-family: 'Roboto Black', sans-serif;
     font-size: 20px;
     margin-bottom: 10px;
-    transition-property: transform, color;
-    transition-duration: 0.2s;
+    transition: transform 0.2s linear, color 0.3s linear;
 }
 
 .name_author:hover{
-    transition-property: transform, color;
     transform: scale(1.15);
     color: red;
-    transition-duration: 0.2s;
 }
 
 .about_author{
@@ -189,13 +179,10 @@
     padding: 10px 50px;
     cursor: pointer;
     border-radius: 25px;
-    transition-property: width, background-color;
-    transition-duration: 0.2s;
+    transition: width 0.2s linear, background-color 0.2s linear;
 }
 
 .like_author:hover{
-    transition-property: transform, color;
     width: 100%;
     background-color:rgb(185, 154, 207);
-    transition-duration: 0.2s;
 }
