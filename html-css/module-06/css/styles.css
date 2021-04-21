@@ -1,0 +1,444 @@
+/* ----------[Main]---------- */
+
+.main_content{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 130px;
+}
+
+.main_header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 30px;
+    align-items: center;
+}
+
+.logo{
+    color: #95e1d3;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.menu{width: 488px;}
+
+.menu_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_item{
+    position: relative;
+    color: #95e1d3;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: color 0.2s linear;
+}
+
+.menu_item:hover, .menu_item:focus{color: #f6a1a1;}
+
+.menu_item::after{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: #f6a1a1;
+    width: 100%;
+    height: 3px;
+    margin-top: 12px;
+    transition: visibility 0.2s linear,opacity 0.2s linear;
+}
+
+.menu_item:hover::after{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ----------[Services]---------- */
+
+.services_content{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 96px;
+}
+
+/* Header */
+
+.services_header{
+    position: relative;
+    margin-bottom: 112px;
+}
+
+.services_header::after{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #f6a1a1;
+    width: 60px;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 43px;
+}
+
+.services_first_title{
+    color: #333333;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px; 
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 22px;
+}
+.services_first_title:first-letter{text-transform: uppercase;}
+
+.services_second_title{
+    font-size: 30px;
+    font-family: "Montserrat";
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Main */
+
+.services_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service{
+    position: relative;
+    width: 332px;
+    margin-bottom: 100px;
+}
+
+/* Icons */
+
+.clock::before{
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: block;
+    background-image: url(../img/icons/clock.png);
+}
+
+.line_graph::before{
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: block;
+    background-image: url(../img/icons/line_graph.png);
+}
+
+.computer::before{
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: block;
+    background-image: url(../img/icons/computer.png);
+}
+
+.book::before{
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: block;
+    background-image: url(../img/icons/book.png);
+}
+
+.home::before{
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: block;
+    background-image: url(../img/icons/home.png);
+}
+
+.box::before{
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: block;
+    background-image: url(../img/icons/box.png);
+}
+
+.service:nth-last-child(-n+3){margin-bottom: 0px;}
+
+.service_title{
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding-left: 62px;
+    margin-bottom: 20px;
+}
+
+.service_desc{
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(153, 153, 153);
+    line-height: 1.6;
+    padding-left: 62px;
+}
+
+/* ----------[Team]---------- */
+
+.team_content{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 82px;
+}
+
+/* Header */
+
+.team_header{
+    position: relative;
+    margin-bottom: 92px;
+}
+
+.team_header::after{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #f6a1a1;
+    width: 60px;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 43px;
+}
+
+.team_first_title{
+    color: #333333;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px; 
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 22px;
+}
+.team_first_title:first-letter{text-transform: uppercase;}
+
+.team_second_title{
+    font-size: 30px;
+    font-family: "Montserrat";
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.team_desc_title{
+    width: 944px;
+    font-size: 15px;
+    font-family: "Roboto";
+    color: rgb(153, 153, 153);
+    line-height: 1.6;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 96px;
+}
+
+/* Main */
+
+.team_main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_team{
+    position: relative;
+    width: 380px;
+}
+
+.card_team:hover>.card_overlay{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.image_card_team{
+    width: 380px;
+    min-height: 470px;
+    max-height: 470px;
+    margin-bottom: 34px;
+}
+
+.name_card_team{
+    font-size: 14px;
+    font-family: "Montserrat";
+    color: rgb(51, 51, 51);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.rank_card_team{
+    font-size: 15px;
+    font-family: "Roboto";
+    color: rgb(153, 153, 153);
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.card_overlay{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 470px;
+    z-index: 1;
+    background-color: #95e1d3;
+    transition: visibility 0.2s linear,opacity 0.2s linear;
+}
+
+.image_card_overlay{
+    position: relative;
+    content: "";
+    width: 380px;
+    height: 470px;
+    right: 10px;
+    bottom: 10px;  
+}
+
+.card1{
+    background: linear-gradient(
+        to top,
+        rgba(252, 227, 136,0.9) 0%,
+        rgba(243, 129, 129,0.9) 100%),
+        url(../img/team/Matthew_Dix.png) no-repeat;
+}
+
+.card2{
+    background: linear-gradient(
+        to top,
+        rgba(252, 227, 136,0.9) 0%,
+        rgba(243, 129, 129,0.9) 100%),
+        url(../img/team/Christopher_Campbell.png) no-repeat;
+}
+
+.card3{
+    background: linear-gradient(
+        to top,
+        rgba(252, 227, 136,0.9) 0%,
+        rgba(243, 129, 129,0.9) 100%),
+        url(../img/team/Michael_Fertig.png) no-repeat;
+}
+
+.social_block{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 224px;
+    height: 56px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.social_box{
+    position: relative;
+    width: 55px;
+    height: 56px;
+    background-color: #fce38a;
+    transition: background-color 0.2s linear;
+}
+
+.social_box:hover{
+    background-color: #95e1d3;
+}
+
+.social_box_icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Footer */
+
+.footer_content{
+    width: 1200px;
+    height: 62px;
+    margin: 0 auto;
+    border-top: solid 1px rgb(229, 229, 229);
+}
+
+.main_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.title_footer_desc{
+    font-size: 14px;
+    font-family: "Montserrat";
+    color: rgb(51, 51, 51);
+    line-height: 1.2;
+}
+
+.link_footer_desc{
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    transition: color 0.2s linear;
+}
+
+.link_footer_desc:hover{
+    color: #f38181;
+}
+
+.footer_form{
+    position: relative;
+}
+.text_footer_form{
+    background-color: rgb(255, 255, 255);    
+    font-size: 15px;
+    font-family: "Roboto";
+    color: rgb(204, 204, 204);
+    font-style: italic;
+    line-height: 1.6;
+    border: none;
+	border-top: solid 1px rgb(231, 231, 231);
+    border-left: solid 1px rgb(231, 231, 231);
+    border-bottom: solid 1px rgb(231, 231, 231);
+	height: 40px;
+    padding-bottom: 1px;
+	display: inline-block;
+	width: 228px;
+}
+
+.reset_footer_form{
+    background-color: rgb(149, 225, 211);
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat";
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 14px 32px 14px 32px;
+    font-size: 14px;
+    line-height: 1.2;
+    cursor: pointer;
+	border: 1px solid #EAEAEA;
+	border: none;
+	display: inline-block;
+	margin-left: -4px;
+}
