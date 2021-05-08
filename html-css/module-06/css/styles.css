@@ -280,6 +280,10 @@
     margin-bottom: 34px;
 }
 
+.image_team{
+    height: 100%;
+}
+
 .name_card_team{
     font-size: 14px;
     font-family: "Montserrat";
