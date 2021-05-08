@@ -84,6 +84,15 @@
     height: 600px;
 }
 
+.slider_buttons{
+    position: absolute;
+    width: 1600px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 3;
+}
+
 .sleider_overlay{
     position: absolute;
     background-color: rgba(0, 0, 2,0.522); 
@@ -334,13 +343,12 @@
 }
 
 .collection_img_block{
+    text-align: center;
     height: 282px;
     background-color: white;
 }
 .collection_img{
-    display: block;
-    margin: 0 auto;
-    max-height: 282px;
+    height: 100%;
 }
 
 .collection_name_block{
