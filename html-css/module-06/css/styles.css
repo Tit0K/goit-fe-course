@@ -257,7 +257,7 @@
 
 /* Main */
 
-.team_main{
+.team{
     display: flex;
     justify-content: space-between;
 }
