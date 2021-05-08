@@ -1,14 +1,11 @@
 /* ----------[Gallery]---------- */
 
-.wrapper{
+.gallery_wrapper{
     background: linear-gradient(45deg, rgb(185, 154, 207), rgb(86, 181, 184));
-}
-
-.gallery_content{
     height: 100vh;
 }
 
-.gallery{
+.gallery_content{
     width: 800px;
     padding-top: 28px;
     margin: 0 auto;
@@ -74,9 +71,14 @@
 
 .image_gallery_box{
     width: 200px;
-    margin-bottom: 10px;
+    margin: 0 auto;
+    margin-bottom: 7px;
     filter: grayscale(100%);
     transition: filter 0.2s ease-in;
+}
+
+.image_gallery{
+    width: 100%;
 }
 
 .title_gallery_box::before{
@@ -94,13 +96,15 @@
 
 /* ----------[author]---------- */
 
-.author_content{
+.author_wrapper{
+    background: linear-gradient(45deg, rgb(185, 154, 207), rgb(86, 181, 184));
     height: 100vh;  
 }
 
-.author{
+.author_content{
     width: 800px;
     margin: 0 auto;
+    padding-top: 28px;
 }
 
 .author_header{
@@ -147,8 +151,13 @@
 
 .box_image_author{
     width: 100px;
+    margin: 0 auto;
     margin-bottom: 12px;
     transition: transform 0.2s ease-in;
+}
+
+.image_author{
+    width: 100%;
 }
 
 .box_image_author:hover{transform: rotate(5deg);}
