@@ -1,3 +1,7 @@
+@keyframes ChangeMenuColor{to{color: #f6a1a1;}}
+@keyframes ChangeDisplay{from{opacity: 0;}to{opacity: 1;}}
+@keyframes ChangeBgColor{to{background-color: #95e1d3;}}
+
 /* ----------[Main]---------- */
 
 .main_content{
@@ -37,10 +41,16 @@
     text-transform: uppercase;
     line-height: 1.2;
     text-decoration: none;
-    transition: color 0.2s linear;
+    /*transition: color 0.2s linear;*/
 }
 
-.menu_item:hover, .menu_item:focus{color: #f6a1a1;}
+.menu_item:hover, .menu_item:focus{
+    /*color: #f6a1a1;*/
+    animation-name: ChangeMenuColor;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
 
 .menu_item::after{
     visibility: hidden;
@@ -52,12 +62,16 @@
     width: 100%;
     height: 3px;
     margin-top: 12px;
-    transition: visibility 0.2s linear,opacity 0.2s linear;
+    /*transition: visibility 0.2s linear,opacity 0.2s linear;*/
 }
 
 .menu_item:hover::after{
     visibility: visible;
-    opacity: 1;
+    /*opacity: 1;*/
+    animation-name: ChangeDisplay;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
 /* ----------[Services]---------- */
@@ -270,7 +284,11 @@
 .card_team:hover>.card_overlay{
     display: block;
     visibility: visible;
-    opacity: 1;
+    /*opacity: 1;*/
+    animation-name: ChangeDisplay;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
 .image_card_team{
@@ -311,7 +329,7 @@
     height: 470px;
     z-index: 1;
     background-color: #95e1d3;
-    transition: visibility 0.2s linear,opacity 0.2s linear;
+    /*transition: visibility 0.2s linear,opacity 0.2s linear;*/
 }
 
 .image_card_overlay{
@@ -363,11 +381,15 @@
     width: 55px;
     height: 56px;
     background-color: #fce38a;
-    transition: background-color 0.2s linear;
+    /*transition: background-color 0.2s linear;*/
 }
 
 .social_box:hover{
-    background-color: #95e1d3;
+    /*background-color: #95e1d3;*/
+    animation-name: ChangeBgColor;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
 .social_box_icon{
@@ -375,6 +397,42 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+}
+
+.facebook{
+    width: 26px;
+    height: 26px;
+    display: block;
+    background-image: url('../img/social/facebook.png');
+    background-repeat: no-repeat;
+    background-position: center;   
+}
+
+.twitter{
+    width: 26px;
+    height: 26px;
+    display: block;
+    background-image: url('../img/social/twitter.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.pinterest{
+    width: 26px;
+    height: 26px;
+    display: block;
+    background-image: url('../img/social/pinterest.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.instagram{
+    width: 26px;
+    height: 26px;
+    display: block;
+    background-image: url('../img/social/instagram.png');
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 /* Footer */
@@ -404,7 +462,7 @@
 .link_footer_desc{
     text-decoration: none;
     color: rgb(51, 51, 51);
-    transition: color 0.2s linear;
+    /*transition: color 0.2s linear;*/
 }
 
 .link_footer_desc:hover{
