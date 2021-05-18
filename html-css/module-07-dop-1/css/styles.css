@@ -71,7 +71,7 @@ td:nth-child(3){
     margin-bottom: 30px;
 }
 
-.name_input, .email_input{
+#name, #email{
     border: gray 2px solid;
     padding-top: 22px;
     padding-left: 24px;
@@ -79,7 +79,7 @@ td:nth-child(3){
     width: 414px;
 }
 
-.message_input{
+#message{
     border: gray 2px solid;
     padding-top: 22px;
     padding-left: 24px;
