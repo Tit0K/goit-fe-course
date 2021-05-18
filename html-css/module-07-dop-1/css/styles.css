@@ -1,0 +1,102 @@
+@import url("./fonts.css");
+
+/* ----------[Task 1]---------- */
+
+.task1_content{
+    font-family: "Roboto", sans-serif;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.table_task1{
+    border: solid 2px #444444;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.caption_table{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+tr{
+    height: 46px;
+    border-bottom: solid 2px #444444;
+}
+
+th{
+    color: white;
+    background-color: #444444;
+}
+
+td,th{
+    vertical-align: middle;
+}
+
+td{
+    border-right: solid 2px #444444;
+}
+
+td:nth-child(1){
+    text-transform: uppercase;
+    width: 222px;
+}
+
+td:nth-child(2){
+    width: 128px;
+}
+
+td:nth-child(3){
+    width: 92px;
+}
+
+/* ----------[Task 2]---------- */
+
+.task2_content{
+    size: 16px;
+    padding-top: 100px;
+}
+
+::placeholder{
+    font-family: "Roboto", sans-serif;
+    color: black;
+}
+
+.form_task2{
+    text-align: center;
+}
+
+.form_element{
+    margin-bottom: 30px;
+}
+
+.name_input, .email_input{
+    border: gray 2px solid;
+    padding-top: 22px;
+    padding-left: 24px;
+    padding-bottom: 20px;
+    width: 414px;
+}
+
+.message_input{
+    border: gray 2px solid;
+    padding-top: 22px;
+    padding-left: 24px;
+    width: 414px;
+    height: 220px;
+}
+
+.submit_button{
+    font-family: "OpenSans", sans-serif;
+    border: none;
+    text-decoration: none;
+    width: 160px;
+    height: 56px;
+    text-transform: uppercase;
+    color: white;
+    size: 13px;
+    background-color: #e76262;
+    cursor: pointer;
+}
+
