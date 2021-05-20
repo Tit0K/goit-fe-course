@@ -1,0 +1,217 @@
+@import url("./fonts.css");
+
+/* ----------[Main]---------- */
+
+.main_content{
+    width: 940px;
+    margin: 0 auto;
+    padding-top: 50px;
+    margin-bottom: 128px;
+}
+
+.main_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 26px;
+    font-family: "Wisdom";
+    color: #fed136;
+    line-height: 1.577;
+}
+
+.menu{
+    width: 486px;
+}
+
+.menu_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_item{
+    color: #222222;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 2.929;
+}
+
+.menu_item:hover,.menu_item:focus{
+    color: #fed136;
+}
+
+/* ----------[Services]---------- */
+
+.services_content{
+    width: 940px;
+    margin: 0 auto;
+    margin-bottom: 122px;
+}
+
+.services_header{
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.title_services_header{
+    font-size: 40px;
+    font-family: "Montserrat";
+    color: rgb(34, 34, 34);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.875;
+}
+
+.desc_services_header{
+    font-size: 16px;
+    font-family: "DroidSerif";
+    color: rgb(119, 119, 119);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.services_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.services_element{
+    width: 290px;
+    text-align: center;
+}
+
+.img_services_element{
+    margin-bottom: 26px;
+}
+
+.title_services_element{
+    font-size: 18px;
+    font-family: "Montserrat";
+    color: rgb(34, 34, 34);
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.desc_services_element{
+    font-size: 14px;
+    font-family: "RobotoSlab";
+    color: rgb(119, 119, 119);
+    line-height: 1.2;
+}
+
+/* ----------[Contact Us]---------- */
+
+.contact_wrapper{
+    background-color: #222222;
+    background-image: url('../img/map.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.contact_content{
+    width: 940px;
+    margin: 0 auto;
+    padding-top: 110px;
+    padding-bottom: 116px;
+}
+
+.contact_header{
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.title_contact_header{
+    font-size: 40px;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.875;
+}
+
+.desc_contact_header{
+    font-size: 16px;
+    font-family: "DroidSerif";
+    color: rgb(119, 119, 119);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.input_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 212px;
+    padding-bottom: 28px;
+}
+
+#name, #email, #subject{
+    width: 400px;
+    height: 52px;
+    border-radius: 5px;
+    padding-left: 22px;
+
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+#name::placeholder, #email::placeholder, #subject::placeholder, #message::placeholder{
+    font-size: 14px;
+    font-family: "Montserrat";
+    color: rgb(187, 187, 187);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;  
+}
+
+#message{
+    width: 400px;
+    height: 210px;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 22px;
+
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+#name:invalid,#email:invalid,#message:invalid{
+    outline: 1px solid red;
+}
+
+#name:valid,#email:valid,#message:valid{
+    outline: 1px solid green;
+}
+
+.form_button{
+    display: block;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    background-color: #fed136;
+    color: white;
+    width: 240px;
+    height: 65px;
+    font-size: 18px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    border-radius: 5px;
+}
+
+.form_button:hover, .form_button:focus{
+    background-color: #ddb72c;
+}
