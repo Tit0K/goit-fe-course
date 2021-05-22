@@ -15,14 +15,11 @@
 
 /* ----------[Main]---------- */
 
-.main_container{
+.main_header{
     width: 940px;
     margin: 0 auto;
     padding-top: 50px;
     margin-bottom: 128px;
-}
-
-.main_header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +57,7 @@
 
 /* ----------[Services]---------- */
 
-.services_container{
+.services_section{
     width: 940px;
     margin: 0 auto;
     margin-bottom: 122px;
@@ -126,7 +123,7 @@
     background-repeat: no-repeat;
 }
 
-.contact_container{
+.contact_footer{
     width: 940px;
     margin: 0 auto;
     padding-top: 110px;
@@ -186,7 +183,7 @@
     line-height: 1.2;  
 }
 
-#message{
+.second_column{
     width: 400px;
     height: 210px;
     border-radius: 5px;
