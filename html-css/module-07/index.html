@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-
     <title>Модуль 7 - Домашнее задание</title>
 </head>
 
 <body>
     <div class="main_wrapper">
 
-        <div class="main_content">
+        <div class="main_container">
             <header class="main_header">
                 <div class="logo">Golden</div>
                 <nav class="menu">
@@ -32,55 +30,66 @@
             </header>
         </div>
 
-        <div class="services_content">
-            <header class="services_header">
-                <h2 class="title_services_header">Services</h2>
-                <p class="desc_services_header">Proin iaculis purus consequat sem cure.</p>
-            </header>
+        <div class="services_container">
+            <section class="services_section">
+                <header class="services_header">
+                    <h2 class="title_services_header">Services</h2>
+                    <p class="desc_services_header">Proin iaculis purus consequat sem cure.</p>
+                </header>
 
-            <ul class="services_list">
-                <li class="services_element">
-                    <img src="img/icons/cart.png" class="img_services_element">
-                    <h3 class="title_services_element">E-Commerce</h3>
-                    <p class="desc_services_element">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora
-                        entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
-                </li>
+                <ul class="services_list">
+                    <li class="services_element">
+                        <img src="img/icons/cart.png" class="img_services_element">
+                        <h3 class="title_services_element">E-Commerce</h3>
+                        <p class="desc_services_element">Proin iaculis purus consequat sem cure digni ssim. Donec
+                            porttitora
+                            entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
+                    </li>
 
-                <li class="services_element">
-                    <img src="img/icons/laptop.png" class="img_services_element">
-                    <h3 class="title_services_element">Responsive Web</h3>
-                    <p class="desc_services_element">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora
-                        entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
-                </li>
-                <li class="services_element">
-                    <img src="img/icons/lock.png" class="img_services_element">
-                    <h3 class="title_services_element">Web Security</h3>
-                    <p class="desc_services_element">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora
-                        entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
-                </li>
-            </ul>
+                    <li class="services_element">
+                        <img src="img/icons/laptop.png" class="img_services_element">
+                        <h3 class="title_services_element">Responsive Web</h3>
+                        <p class="desc_services_element">Proin iaculis purus consequat sem cure digni ssim. Donec
+                            porttitora
+                            entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
+                    </li>
+                    <li class="services_element">
+                        <img src="img/icons/lock.png" class="img_services_element">
+                        <h3 class="title_services_element">Web Security</h3>
+                        <p class="desc_services_element">Proin iaculis purus consequat sem cure digni ssim. Donec
+                            porttitora
+                            entum suscipit aenean rhoncus posuere odio in tincidunt.</p>
+                    </li>
+                </ul>
+            </section>
         </div>
     </div>
 
-    <div class="contact_wrapper">
-        <div class="contact_content">
-            <header class="contact_header">
-                <h2 class="title_contact_header">Contact us</h2>
-                <p class="desc_contact_header">Proin iaculis purus consequat sem cure.</p>
-            </header>
+    <footer class="main_footer">
+        <div class="contact_wrapper">
+            <div class="contact_container">
+                <header class="contact_header">
+                    <h2 class="title_contact_header">Contact us</h2>
+                    <p class="desc_contact_header">Proin iaculis purus consequat sem cure.</p>
+                </header>
 
-            <form action="#" method="GET" class="form">
-                <div class="input_form">
-                    <input name="name" id="name" type="text" placeholder="Your name *" required>
-                    <input name="email" id="email" type="email" placeholder="Your e-mail *" required>
-                    <input name="subject" id="subject" type="text" placeholder="Subject">
-                    <textarea name="message" id="message" placeholder="Your message *" required></textarea>
-                </div>
-                <button class="form_button">Send Message</button>
-            </form>
+                <form action="#" method="GET" class="form">
+                    <div class="input_form">
+                        <input name="name" id="name" type="text" placeholder="Your name *"
+                            class="first_column input_row" required>
+                        <input name="email" id="email" type="email" placeholder="Your e-mail *"
+                            class="first_column input_row" required>
+                        <input name="subject" id="subject" type="text" placeholder="Subject"
+                            class="first_column input_row">
+                        <textarea name="message" id="message" placeholder="Your message *"
+                            class="second_column input_row" required></textarea>
+                    </div>
+                    <button class="form_button">Send Message</button>
+                </form>
 
+            </div>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>
