@@ -1,0 +1,92 @@
+@media (min-width: 768px) and (max-width: 1399px){
+
+/* ----------[Promo]---------- */
+
+.promo_section{
+    background-image: url('../../img/background/promo_tablet.png');
+    height: 700px;
+}
+
+/* =====[Header]===== */
+
+.promo_header{
+    justify-content: space-between;
+    width: calc((673/768)*100%);;
+    height: 36px;
+    margin-bottom: 152px;
+}
+
+/* =====[Content]===== */
+
+.promo_content{
+    width: calc((500/768)*100%);
+}
+
+.promo_title{
+    font-size: 51px;
+    margin-bottom: 42px;
+}
+
+.promo_desc{
+    font-size: 23px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 34px;
+}
+
+.promo_final_button{
+    width: 280px;
+    height: 40px;
+    font-size: 14px;
+}
+
+/* ----------[Partners]---------- */
+
+
+.partners_content{
+    flex-wrap: wrap;
+    width: calc((492/768)*100%);
+    justify-content: center;
+}
+
+.partners_title{
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 32px;
+}
+
+.partners_list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 532px;
+}
+
+.partners_block{
+    width: calc((215/492)*100%);
+    margin-bottom: 30px;
+}
+
+.partner_image{
+    margin-bottom: 20px;
+}
+
+.partner_name{
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.partner_desc{
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.see_other_partners{
+    width: 280px;
+    height: 40px;
+    font-size: 14px;
+    margin-bottom: 56px;
+}
+
+}
