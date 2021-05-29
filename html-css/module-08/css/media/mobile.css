@@ -3,7 +3,7 @@
 /* ----------[Promo]---------- */
 
 .promo_section{
-    background-image: url('../img/background/promo_mobile.png');
+    background-image: url('../../img/background/promo_mobile.png');
     height: 540px;
 }
 
