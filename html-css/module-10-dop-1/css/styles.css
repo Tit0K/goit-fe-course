@@ -1,0 +1,63 @@
+@import url("./fonts.css");
+
+/* ----------[Colors]---------- */
+
+body{
+    --color-darkblue: #3007c5;
+    --color-red: #ff0000;
+    --color-brown: #a52a2a;
+}
+
+.yellow{background-color: var(--color-lightyellow)}
+.green{background-color: var(--color-lightgreen)}
+.lbrown{background-color: var(--color-lightbrown)}
+.pink{background-color: var(--color-lightpink);}
+
+/* ----------[Main]---------- */
+
+.section{
+    text-align: center;
+    font-family: "RobotoSlab";
+    font-weight: 700;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.header{
+    margin-bottom: 20px;
+}
+
+/* ----------[Task 2]---------- */
+
+.content_task2{
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    background: url('../img/task2/placeimg_400_200_nature.jpg') no-repeat;
+  }
+
+@media (-webkit-min-device-pixel-ratio: 2){
+    .content_task2 { background: url('../img/task2/placeimg_800_400_nature.jpg') no-repeat; }
+}
+
+/* ----------[Task 3]---------- */
+
+.logo__link{
+    color: var(--color-darkblue);
+}
+
+.link{
+    text-decoration: none;
+}
+
+.logo--hover:hover, .logo--hover:focus{
+    color: var(--color-red);
+}
+
+.navigation{
+    padding-top: 20px;
+}
+
+.navigation__element{
+    color: var(--color-brown);
+}
