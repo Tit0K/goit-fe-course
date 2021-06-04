@@ -1,9 +1,8 @@
-@media (min-width: 992px) and (max-width: 1299px){
+@media (min-width: 768px) and (max-width: 1299px){
 
 /* ----------[Promo]---------- */
 
 .promo_section{
-    background-image: url('../../img/background/promo_tablet.png');
     height: 700px;
 }
 
@@ -18,14 +17,17 @@
 }
 
 .promo_header_buttons{
-    padding-right: 40px;
+    padding-right: 37px;
 }
 
 /* =====[Content]===== */
 
 .promo_title{
+    max-width: 494px;
     font-size: 50px;
     margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .promo_desc{
@@ -71,7 +73,7 @@
 }
 
 .see_other_partners{
-    width: 280px;
+    width: 192px;
     height: 40px;
     font-size: 14px;
     margin-bottom: 56px;

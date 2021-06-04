@@ -7,13 +7,14 @@
     --color-orange: #ffa507;
     --color-lightgreen: #1cd7ad;
     --color-darkblue: #4e73db;
+    --color-grey: #666666;
+    --color-darkgrey: #333333;
 }
 
 /* ----------[Promo]---------- */
 
 .promo_section{
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: no-repeat center/cover url('../img/background/promo_desktop.png');
 }
 
 /* =====[Header]===== */
@@ -121,6 +122,7 @@
 }
 
 .partners_title{
+    color:var(--color-darkgrey);
     padding-top: 70px;
     font-family: "Montserrat";
     font-weight: 700;
@@ -169,11 +171,13 @@
 
 .partner_name{
     font-family: "Montserrat";
+    color: var(--color-darkgrey);
     font-weight: 700;
 }
 
 .partner_desc{
     font-family: "Roboto";
+    color: var(--color-grey);
     font-weight: 300;    
 }
 
