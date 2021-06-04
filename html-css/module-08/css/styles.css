@@ -14,10 +14,7 @@
 /* ----------[Promo]---------- */
 
 .promo_section{
-    background-image: url('../img/background/promo_desktop.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: no-repeat center/cover url('../img/background/promo_desktop.png');
 }
 
 /* =====[Header]===== */
