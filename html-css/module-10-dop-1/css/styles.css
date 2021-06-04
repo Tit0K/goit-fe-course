@@ -8,14 +8,9 @@ body{
     --color-brown: #a52a2a;
 }
 
-.yellow{background-color: var(--color-lightyellow)}
-.green{background-color: var(--color-lightgreen)}
-.lbrown{background-color: var(--color-lightbrown)}
-.pink{background-color: var(--color-lightpink);}
+/* ----------[Task 1]---------- */
 
-/* ----------[Main]---------- */
-
-.section{
+.task1{
     text-align: center;
     font-family: "RobotoSlab";
     font-weight: 700;
@@ -23,13 +18,25 @@ body{
     padding-top: 20px;
 }
 
-.header{
+.task1-header{
     margin-bottom: 20px;
 }
 
 /* ----------[Task 2]---------- */
 
-.content_task2{
+.task2{
+    text-align: center;
+    font-family: "RobotoSlab";
+    font-weight: 700;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.task2-header{
+    margin-bottom: 20px;
+}
+
+.task2-content{
     width: 400px;
     height: 200px;
     margin: 0 auto;
@@ -37,25 +44,38 @@ body{
   }
 
 @media (-webkit-min-device-pixel-ratio: 2){
-    .content_task2 { background: url('../img/task2/placeimg_800_400_nature.jpg') no-repeat; }
+    .task2-content { background: url('../img/task2/placeimg_800_400_nature.jpg') no-repeat; }
 }
 
 /* ----------[Task 3]---------- */
 
+.task3{
+    text-align: center;
+    font-family: "RobotoSlab";
+    font-weight: 700;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.task3-header{
+    margin-bottom: 20px;
+}
+
 .logo__link{
-    color: var(--color-darkblue);
-}
-
-.link{
     text-decoration: none;
-}
-
-.logo--hover:hover, .logo--hover:focus{
-    color: var(--color-red);
+    color: var(--color-darkblue);
 }
 
 .navigation{
     padding-top: 20px;
+}
+
+.navigation__link{
+    text-decoration: none;
+}
+
+.navigation__link:hover, .navigation__link:focus{
+    color: var(--color-red);
 }
 
 .navigation__element{
