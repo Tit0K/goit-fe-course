@@ -1,4 +1,4 @@
-@media (min-width: 1440px){
+@media (min-width: 1400px){
 
 /* ----------[Promo]---------- */
 
@@ -23,8 +23,11 @@
 }
 
 .promo_title{
+    max-width: 504px;
     font-size: 52px;
     margin-bottom: 42px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .promo_desc{
@@ -61,7 +64,7 @@
 }
 
 .partners_block{
-    width: calc((215/940)*100%);
+    width: calc((220/940)*100%);
     margin-bottom: 30px;
 }
 
@@ -89,7 +92,7 @@
 }
 
 .see_other_partners{
-    width: 280px;
+    width: 192px;
     height: 40px;
     font-size: 14px;
     margin-bottom: 56px;

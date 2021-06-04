@@ -23,8 +23,11 @@
 }
 
 .promo_title{
+    max-width: 494px;
     font-size: 51px;
     margin-bottom: 42px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .promo_desc{
@@ -83,7 +86,7 @@
 }
 
 .see_other_partners{
-    width: 280px;
+    width: 192px;
     height: 40px;
     font-size: 14px;
     margin-bottom: 56px;

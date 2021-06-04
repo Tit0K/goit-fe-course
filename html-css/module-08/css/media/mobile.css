@@ -25,8 +25,11 @@
 }
 
 .promo_title{
+    max-width: 295px;
     font-size: 30px;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .promo_desc{
@@ -34,7 +37,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    width: calc((291/320)*100%);
+    max-width: 216px;
 }
 
 .promo_final_button{
