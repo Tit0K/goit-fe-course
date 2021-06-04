@@ -3,8 +3,9 @@
 /* ----------[Promo]---------- */
 
 .promo_section{
-    background-image: url('../../img/background/promo_tablet.png');
-    height: 700px;
+    background-image: url('../../img/background/promo_desktop.png');
+    background-position: center;
+    height: 700px;    
 }
 
 /* =====[Header]===== */
