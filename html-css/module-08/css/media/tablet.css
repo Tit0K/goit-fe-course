@@ -3,8 +3,6 @@
 /* ----------[Promo]---------- */
 
 .promo_section{
-    background-image: url('../../img/background/promo_desktop.png');
-    background-position: center;
     height: 700px;    
 }
 
