@@ -1,0 +1,38 @@
+@import 'base/fonts';
+@import './utils/mixins';
+@import 'base/scaffolding';
+
+/* ----------[Task 1]---------- */
+
+$font-roboto: "RobotoSlab", sans-serif;
+$text-color: #424242;
+$text-color__hover: #03a9f4;
+$text-indent-size: 18px;
+
+.task1-header {
+    margin-bottom: 20px;
+
+    &__title {
+        display: inline-block;
+        font-family: $font-roboto;
+        color: $text-color;
+        text-indent: $text-indent-size;
+        padding-top: 20px;
+        font-size: 24px;
+
+        &:hover {
+            color: $text-color__hover;
+            cursor: pointer;
+        }
+    }
+}
+
+/* ----------[Task 2]---------- */
+
+.task2-header {
+    margin-bottom: 20px;
+
+    &__title {
+        @include task2-font(20px,1.4);
+    }
+}
