@@ -122,7 +122,7 @@ body{
     color: var(--color-yellow);
 }
 
-.navigation__link--underscore::after{
+.navigation__link::after{
     content: '';
     display: none;
     position: absolute;
@@ -136,8 +136,12 @@ body{
     background-color: var(--color-yellow);
 }
 
-.navigation__link--underscore:hover::after{
+.navigation__link:hover::after{
     display: inline-block;
+}
+
+.navigation__link--underscore:hover::after{
+    display: none;
 }
 
 .navigation__icon{
@@ -310,7 +314,7 @@ body{
     margin-bottom: 20px;
 }
 
-.services-list__name__description{
+.services-list__description{
     font-size: 15px;
     font-family: "Roboto";
     color: var(--color-lightgrey);
@@ -371,7 +375,7 @@ body{
     margin-bottom: 92px;
 }
 
-.team-list{
+.team-content__list{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -380,25 +384,25 @@ body{
             justify-content: space-between;
 }
 
-.team-list__element{
+.team-content__element{
     width: 380px;
 }
 
-.team-list__photo{
+.team-content__photo{
     position: relative;
     margin-bottom: 30px;
 }
 
-.team-list__img{
+.team-content__img{
     width: 100%;
     height: auto;
 }
 
-.team-list__photo:hover>.team-overlay{
+.team-content__photo:hover>.team-overlay{
     visibility: visible;
 }
 
-.team-list__name{
+.team-content__name{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
@@ -409,7 +413,7 @@ body{
     margin-bottom: 15px;
 }
 
-.team-list__profession{
+.team-content__profession{
     font-size: 15px;
     font-family: "Roboto";
     color: var(--color-lightgrey);
@@ -564,23 +568,23 @@ body{
     border-top: solid 1px rgb(229, 229, 229);
 }
 
-.footer-description{
+.footer-content__description{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
     line-height: 1.2;      
 }
 
-.footer-description__link{
+.footer-content__link{
     text-decoration: none;
     color: var(--color-pink);
 }
 
-.footer-form{
+.footer-content__form{
     position: relative;
 }
 
-.footer-form__input{
+.footer-content__input{
     background-color: var(--color-white);
     font-size: 15px;
     font-family: "Roboto";
@@ -597,7 +601,7 @@ body{
 	width: 228px;
 }
 
-.footer-form__button{
+.footer-content__button{
     background-color: var(--color-lightblue);
     color: var(--color-white);
     font-family: "Montserrat";
