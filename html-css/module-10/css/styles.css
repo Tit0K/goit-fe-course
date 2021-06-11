@@ -1,10 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
-
 @import url("./fonts.css");
 
 /* ----------[Colors]---------- */
@@ -21,7 +14,7 @@ body{
 
 /* ----------[Promo]---------- */
 
-.promo-section{
+.promo{
     width: 100%;
     height: 1000px;
     background: -webkit-gradient(
@@ -44,7 +37,7 @@ body{
 }
 
 @media (-webkit-min-device-pixel-ratio: 2){
-    .promo-section{
+    .promo{
         background: -webkit-gradient(
         linear, 
         left bottom, left top, 
@@ -70,7 +63,7 @@ body{
     padding-top: 30px;
 }
 
-.promo-header{
+.promo-content__header{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -100,7 +93,7 @@ body{
     width: 620px;
 }
 
-.nav-list{
+.navigation__list{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -109,12 +102,12 @@ body{
             justify-content: space-between;
 }
 
-.nav-list__element{
+.navigation__element{
     display: inline-block;
     position: relative;
 }
 
-.nav-list__element__link{
+.navigation__link{
     display: block;
     text-decoration: none;
     text-transform: uppercase;
@@ -125,11 +118,11 @@ body{
     font-weight: 300;      
 }
 
-.nav-list__element__link:hover, .nav-list__element__link:focus{
+.navigation__link:hover, .navigation__link:focus{
     color: var(--color-yellow);
 }
 
-.nav-list__element--underscore::after{
+.navigation__link--underscore::after{
     content: '';
     display: none;
     position: absolute;
@@ -143,22 +136,22 @@ body{
     background-color: var(--color-yellow);
 }
 
-.nav-list__element--underscore:hover::after{
+.navigation__link--underscore:hover::after{
     display: inline-block;
 }
 
-.nav-list__element__link__icon{
+.navigation__icon{
     fill: var(--color-white);
     display: block;
     width: 18px;
     height: 18px;
 }
 
-.nav-list__element__link__icon:hover,.nav-list__element__link__icon:focus{
+.navigation__icon:hover,.navigation__icon:focus{
     fill: var(--color-yellow);
 }
 
-.promo-template{
+.promo-content__template{
     font-size: 72px;
     font-family: "KaushanScript";
     font-weight: 400;
@@ -168,7 +161,7 @@ body{
     margin-bottom: 57px;
 }
 
-.promo-title{
+.promo-content__title{
     max-width: 920px;
     font-size: 150px;
     font-family: "Montserrat";
@@ -181,11 +174,11 @@ body{
     margin-bottom: 126px;
 }
 
-.promo-button-block{
+.promo-content__button-wrapper{
     text-align: center;
 }
 
-.promo-button-block__button{
+.promo-content__button{
     background: transparent;
     font-size: 14px;
     font-family: "Montserrat";
@@ -200,7 +193,7 @@ body{
 
 /* ----------[Services]---------- */
 
-.services-section{
+.services{
     height: 560px;
 }
 
@@ -224,7 +217,7 @@ body{
     margin-top: 44px;
 }
 
-.services-header__title-first{
+.services-header__title{
     font-size: 24px;
     font-family: "KaushanScript";
     color: var(--color-grey);
@@ -234,7 +227,7 @@ body{
     margin-bottom: 24px;
 }
 
-.services-header__title-second{
+.services-header__description{
     font-size: 30px;
     font-family: "Montserrat";
     color: var(--color-grey);
@@ -304,11 +297,11 @@ body{
 
 /*===================*/
 
-.services-list__element__info{
+.services-list__info{
     width: 300px;
 }
 
-.services-list__element__info__name{
+.services-list__name{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
@@ -317,7 +310,7 @@ body{
     margin-bottom: 20px;
 }
 
-.services-list__element__info__desc{
+.services-list__name__description{
     font-size: 15px;
     font-family: "Roboto";
     color: var(--color-lightgrey);
@@ -346,7 +339,7 @@ body{
     margin-top: 44px;
 }
 
-.team-header__title-first{
+.team-header__title{
     font-size: 24px;
     font-family: "KaushanScript";
     color: var(--color-grey);
@@ -356,7 +349,7 @@ body{
     margin-bottom: 24px;
 }
 
-.team-header__title-second{
+.team-header__description{
     font-size: 30px;
     font-family: "Montserrat";
     color: var(--color-grey);
@@ -366,7 +359,7 @@ body{
     text-align: center;
 }
 
-.team-content__desc{
+.team-content__description{
     width: 953px;
     font-size: 15px;
     font-family: "Roboto";
@@ -387,25 +380,25 @@ body{
             justify-content: space-between;
 }
 
-.team-list__block{
+.team-list__element{
     width: 380px;
 }
 
-.team-list__block__photo{
+.team-list__photo{
     position: relative;
     margin-bottom: 30px;
 }
 
-.team-list__block__photo__img{
+.team-list__img{
     width: 100%;
     height: auto;
 }
 
-.team-list__block__photo:hover>.team-list__block__photo__overlay{
+.team-list__photo:hover>.team-overlay{
     visibility: visible;
 }
 
-.team-list__block__name{
+.team-list__name{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
@@ -416,7 +409,7 @@ body{
     margin-bottom: 15px;
 }
 
-.team-list__block__profession{
+.team-list__profession{
     font-size: 15px;
     font-family: "Roboto";
     color: var(--color-lightgrey);
@@ -426,7 +419,7 @@ body{
     margin-bottom: 84px;
 }
 
-.team-list__block__photo__overlay{
+.team-overlay{
     display: block;
     position: absolute;
     visibility: hidden;
@@ -436,7 +429,7 @@ body{
     background-color: var(--color-lightblue);
 }
 
-.team-list__block__photo__overlay__gradient{
+.team-overlay__gradient{
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -444,7 +437,7 @@ body{
     height: 470px; 
 }
 
-.team-list__block__photo__overlay__gradient--Matthew-Dix{
+.team-overlay__gradient--Matthew-Dix{
     background: -webkit-gradient(
         linear, 
         left bottom, left top, 
@@ -463,7 +456,7 @@ body{
         url('.././img/team/Matthew_Dix.png') no-repeat;
 }
 
-.team-list__block__photo__overlay__gradient--Christopher-Campbell{
+.team-overlay__gradient--Christopher-Campbell{
     background: -webkit-gradient(
         linear, 
         left bottom, left top, 
@@ -482,7 +475,7 @@ body{
         url('.././img/team/Christopher_Campbell.png') no-repeat;
 }
 
-.team-list__block__photo__overlay__gradient--Michael-Fertig{
+.team-overlay__gradient--Michael-Fertig{
     background: -webkit-gradient(
         linear, 
         left bottom, left top, 
@@ -501,7 +494,7 @@ body{
         url('.././img/team/Michael_Fertig.png') no-repeat;
 }
 
-.team-list__block__photo__overlay__social-block{
+.team-overlay__wrapper{
     width: 226px;
     position: absolute;
     top: 50%;
@@ -517,18 +510,18 @@ body{
             transform: translateX(-50%) translateY(-50%);
 }
 
-.team-list__block__photo__overlay__social-block__icon-block{
+.team-overlay__social{
     position: relative;
     width: 55px;
     height: 56px;
     background-color: var(--color-yellow);
 }
 
-.team-list__block__photo__overlay__social-block__icon-block:hover{
+.team-overlay__social:hover{
     background-color: var(--color-pink);
 }
 
-.team-list__block__photo__overlay__social-block__icon-block__link__icon{
+.team-overlay__icon{
     fill: var(--color-pink);
     display: block;
     width: 26px;
@@ -542,9 +535,9 @@ body{
 }
 
 
-.team-list__block__photo__overlay__social-block__icon-block:hover>
-.team-list__block__photo__overlay__social-block__icon-block__link>
-.team-list__block__photo__overlay__social-block__icon-block__link__icon{
+.team-overlay__social:hover>
+.team-overlay__link>
+.team-overlay__icon{
     fill: var(--color-white);
 }
 
@@ -571,23 +564,23 @@ body{
     border-top: solid 1px rgb(229, 229, 229);
 }
 
-.footer-content-desc{
+.footer-description{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
     line-height: 1.2;      
 }
 
-.footer-content-desc__link{
+.footer-description__link{
     text-decoration: none;
     color: var(--color-pink);
 }
 
-.footer-content-form{
+.footer-form{
     position: relative;
 }
 
-.footer-content-form__input{
+.footer-form__input{
     background-color: var(--color-white);
     font-size: 15px;
     font-family: "Roboto";
@@ -604,7 +597,7 @@ body{
 	width: 228px;
 }
 
-.footer-content-form__button{
+.footer-form__button{
     background-color: var(--color-lightblue);
     color: var(--color-white);
     font-family: "Montserrat";
