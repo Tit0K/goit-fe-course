@@ -155,17 +155,16 @@ body{
     fill: var(--color-yellow);
 }
 
-.promo-content__template{
+.promo-content__title{
     font-size: 72px;
     font-family: "KaushanScript";
     font-weight: 400;
     color: var(--color-white);
     line-height: 1.2;
-    text-align: center; 
-    margin-bottom: 57px;
+    text-align: center;
 }
 
-.promo-content__title{
+.promo-content__description{
     max-width: 920px;
     font-size: 150px;
     font-family: "Montserrat";
@@ -176,6 +175,7 @@ body{
     text-align: center;
     margin: 0 auto;
     margin-bottom: 126px;
+    padding-top: 57px;
 }
 
 .promo-content__button-wrapper{
@@ -228,7 +228,6 @@ body{
     line-height: 1.2;
     text-align: center;
     font-weight: 300;
-    margin-bottom: 24px;
 }
 
 .services-header__description{
@@ -239,9 +238,10 @@ body{
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
+    padding-top: 24px;
 }
 
-.services-list{
+.services-content__list{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -250,7 +250,7 @@ body{
     list-style-type: none;
 }
 
-.services-list__element{
+.services-content__element{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -265,47 +265,30 @@ body{
     margin-bottom: 0px;
 }
 
-.services-list__icon{
-    display: block;
+.services-content__figure{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.services-content__icon{
     width: 32px;
     height: 32px;
-    margin-right: 30px;
+    fill: var(--color-lightblue);
+    padding-left: 22px;
 }
 
-/*======[Icons]======*/
-
-
-.services-list__icon--alarm{
-    background-image: url('../img/icons/services/alarm.png');
-}
-
-.services-list__icon--line_graph{
-    background-image: url('../img/icons/services/line_graph.png');
-}
-
-.services-list__icon--computer{
-    background-image: url('../img/icons/services/computer.png');
-}
-
-.services-list__icon--book{
-    background-image: url('../img/icons/services/book.png');
-}
-
-.services-list__icon--home{
-    background-image: url('../img/icons/services/home.png');
-}
-
-.services-list__icon--box{
-    background-image: url('../img/icons/services/box.png');
-}
-
-/*===================*/
-
-.services-list__info{
+.services-content__info{
     width: 300px;
 }
 
-.services-list__name{
+.services-content__name{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
@@ -314,11 +297,12 @@ body{
     margin-bottom: 20px;
 }
 
-.services-list__description{
+.services-content__description{
     font-size: 15px;
     font-family: "Roboto";
     color: var(--color-lightgrey);
     line-height: 1.6;
+    padding-right: 30px;
 }
 
 /* ----------[Team]---------- */
@@ -350,7 +334,6 @@ body{
     line-height: 1.2;
     text-align: center;
     font-weight: 300;
-    margin-bottom: 24px;
 }
 
 .team-header__description{
@@ -361,6 +344,7 @@ body{
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
+    padding-top: 24px;
 }
 
 .team-content__description{
@@ -572,7 +556,8 @@ body{
     font-size: 14px;
     font-family: "Montserrat";
     color: var(--color-grey);
-    line-height: 1.2;      
+    line-height: 1.2;
+    font-style: normal;
 }
 
 .footer-content__link{
