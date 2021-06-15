@@ -10,7 +10,6 @@ yarn-error.log*
 
 # Build artifacts
 build/
-dist/
 
 # OS junk
 .DS_Store
