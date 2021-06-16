@@ -1,30 +1,16 @@
-@import 'base/fonts';
-@import 'base/scaffolding';
+@import './utils/reset';
+@import './helpers/varibles';
+@import './fonts/fonts';
+@import './base/scaffolding';
 
-/* ----------[Colors]---------- */
-
-$color-white: #fff;
-$color-yellow: #fce38a;
-$color-grey: #333;
-$color-pink: #f38181;
-$color-lightgrey: #999;
-$color-lightblue: #95e1d3;
-$color-darkwhite: #e7e7e7;
-
-/* ----------[Fonts]---------- */
-
-$font-KaushanScript: "KaushanScript";
-$font-Montserrat: "Montserrat";
-$font-Roboto: "Roboto";
-
-/* ----------[Promo]---------- */
-@import 'sections/promo';
+/* ----------[Header]---------- */
+@import './components/header';
 
 /* ----------[Services]---------- */
-@import 'sections/services';
+@import './components/services';
 
 /* ----------[Team]---------- */
-@import 'sections/team';
+@import './components/team';
 
 /* ----------[Footer]---------- */
-@import 'sections/footer';
+@import './components/footer';
