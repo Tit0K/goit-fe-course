@@ -8,9 +8,7 @@ const sorryMessage = 'Нам очень жаль, приходите еще!';
 let userGroup;
 let groupPlaces;
 
-let userInput = prompt('Введите число необходимых мест:');
-
-userInput = Number(userInput);
+let userInput = Number(prompt('Введите число необходимых мест:'));
 
 if(!userInput) {
     alert('Увы... это не то что нужно было отправить\n' + sorryMessage);
@@ -23,8 +21,8 @@ if(!userInput) {
     } else if (userInput <= hurghadaPlaces) {
         userGroup = 'Хургада';
         groupPlaces = hurghadaPlaces;
-
-    } else if (userInput <= tabaPlaces) {
+    }
+    else if (userInput <= tabaPlaces) {
         userGroup = 'Таба';
         groupPlaces = tabaPlaces;
     }
@@ -34,12 +32,12 @@ if(!userInput) {
         if(userInput) {
             alert(`Приятного путешествия в группе ${userGroup}`);
         }
-
+    
         else {
             alert(sorryMessage);
         }
     }
-    
+
     else {
         alert(sorryMessage);
     }
