@@ -7,7 +7,7 @@ let userInput;
 do{
     userInput = prompt('Введите ваш пароль:');
     if(userInput == null) break;
-    if(passwords.indexOf(userInput) != -1) {
+    if(passwords.includes(userInput)) {
         alert('Добро пожаловать!');
         break;
     } else {
