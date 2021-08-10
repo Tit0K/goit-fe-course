@@ -27,5 +27,8 @@ const addLogin = (allLogins, login) => {
 };
 
 addLogin(loginsArr, '1');
+addLogin(loginsArr, '1234567890123456789');
 addLogin(loginsArr, 'botee');
 addLogin(loginsArr, 'bote2');
+
+console.log('loginsArr: ', loginsArr);
