@@ -26,4 +26,6 @@ const addLogin = (allLogins, login) => {
     }
 };
 
+addLogin(loginsArr, '1');
+addLogin(loginsArr, 'botee');
 addLogin(loginsArr, 'bote2');
