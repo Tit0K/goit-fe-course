@@ -22,8 +22,7 @@ const cashier = {
     change: 0,
     error: null,
     greet() {
-        const name = this.name;
-        console.log(`Добрый день, вас обслуживает ${name}`);
+        console.log(`Добрый день, вас обслуживает ${this.name}`);
     },
     getCustomerMoney(value) {
         cashier.customerMoney = value; 
@@ -41,12 +40,10 @@ const cashier = {
         }
     },
     onSuccess() {
-        const change = this.change;
-        console.log(`Спасибо за покупку, ваша здача ${change}!`)
+        console.log(`Спасибо за покупку, ваша здача ${this.change}!`)
     },
     onError() {
-        const error = this.error;
-        console.log(error);
+        console.log(this.error);
     },
     reset() {
         this.customerMoney = 0;
