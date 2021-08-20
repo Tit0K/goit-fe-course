@@ -96,9 +96,9 @@ const notepad = {
         const newNotesArr = [];
 
         for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].title.toLowerCase().split(' ').includes(query)) {
+            if(this.notes[i].title.toLowerCase().split(' ').includes(query.toLowerCase())) {
                 newNotesArr.push(this.notes[i]);
-            } else if(this.notes[i].body.toLowerCase().split(' ').includes(query)) {
+            } else if(this.notes[i].body.toLowerCase().split(' ').includes(query.toLowerCase())) {
                 newNotesArr.push(this.notes[i]);
             }
         }
