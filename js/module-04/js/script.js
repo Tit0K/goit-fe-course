@@ -1,100 +1,233 @@
-'use strict';
-
-const products = {
-    bread: 10,
-    milk: 15,
-    apples: 20,
-    chicken: 50,
-    cheese: 40,
+const Priority = {
+    LOW: 0,
+    NORMAL: 1,
+    HIGH: 2,
 };
-
-const order = {
-    bread: 2,
-    milk: 2,
-    apples: 1,
-    cheese: 1,
-};
-
-const cashier = {
-    name: 'Mango',
-    customerMoney: 0,
-    totalPrice: 0,
-    change: 0,
-    error: null,
-    greet() {
-        console.log(`Добрый день, вас обслуживает ${this.name}`);
-    },
-    getCustomerMoney(value) {
-        cashier.customerMoney = value; 
-    },
-    countTotalPrice(allProducts, order) {
-        for(const product of Object.keys(order)) {
-            this.totalPrice += order[product]*allProducts[product];
+const notepad = {
+    notes: []
+    ,
+    getNotes() {
+        const allNotes = [];
+        for(note of this.notes) {
+            for(elemnt of Object.values(note)) {
+                allNotes.push('\n'+elemnt);
+            }
         }
+        return allNotes.join('');
+        /*
+         * Принимает: ничего
+         * Возвращает: все заметки, значение свойства notes
+         */
     },
-    countChange() {
-        if(this.customerMoney >= this.totalPrice) {
-            this.change = this.customerMoney - this.totalPrice;
-        } else {
-            this.error = 'Вам не хватает денег на покупки';
+    findNoteById(id) {
+        for(let i=0; i < this.notes.length; i+=1) {
+            if(this.notes[i].id === id) {
+                return this.notes[i].title;
+            }
         }
+        return undefined;
+        /*
+         * Ищет заметку в массиве notes
+         *
+         * Принимает: идентификатор заметки
+         * Возвращает: заметку с совпавшим полем id или undefined если ничего не найдено
+         */
+
     },
-    onSuccess() {
-        console.log(`Спасибо за покупку, ваша здача ${this.change}!`)
+    saveNote(note) {
+        this.notes.push(note);
+        return note;
+        /*
+         * Сохраняет заметку в массив notes
+         *
+         * Принимает: объект заметки
+         * Возвращает: сохраненную заметку
+         */
+
     },
-    onError() {
-        console.log(this.error);
+    deleteNote(id) {
+        for(let i=0; i < this.notes.length; i+=1) {
+            if(this.notes[i].id === id) {
+                this.notes.splice(i, 1);
+            }
+        }
+        /*
+         * Удаляет заметку по идентификатору из массива notes
+         *
+         * Принимает: идентификатор заметки
+         * Возвращает: ничего
+         */
+
     },
-    reset() {
-        this.customerMoney = 0;
-        this.totalPrice = 0;
-        this.change = 0;
-        this.error = null; 
+    updateNoteContent(id, updatedContent) {
+        for(let i=0; i < this.notes.length; i+=1) {
+            if(this.notes[i].id === id) {
+                Object.assign(this.notes[i], updatedContent);
+                return this.findNoteById(id);
+            }
+        }
+
+        /*
+         * Обновляет контент заметки
+         * updatedContent - объект с полями вида {имя: значение, имя: значение}
+         * Свойств в объекте updatedContent может быть произвольное количество
+         *
+         * Принимает: идентификатор заметки и объект, полями которого надо обновить заметку
+         * Возвращает: обновленную заметку
+         */
+
+    },
+    updateNotePriority(id, priority) {
+        for(let i=0; i < this.notes.length; i+=1) {
+            if(this.notes[i].id === id) {
+                this.notes[i].priority = priority;
+                return this.findNoteById(id);
+            }
+        }
+        /*
+         * Обновляет приоритет заметки
+         *
+         * Принимает: идентификатор заметки и ее новый приоритет
+         * Возвращает: обновленную заметку
+         */
+
+    },
+    filterNotesByQuery(query) {
+        const newNotesArr = [];
+
+        for(let i=0; i < this.notes.length; i+=1) {
+            if(this.notes[i].title.toLowerCase().split(' ').includes(query)) {
+                newNotesArr.push(this.notes[i]);
+            } else if(this.notes[i].body.toLowerCase().split(' ').includes(query)) {
+                newNotesArr.push(this.notes[i]);
+            }
+        }
+        return newNotesArr;
+        /*
+         * Фильтрует массив заметок по подстроке query.
+         * Если значение query есть в заголовке или теле заметки - она подходит
+         *
+         * Принимает: подстроку для поиска в title и body заметки
+         * Возвращает: новый массив заметок, контент которых содержит подстроку
+         */
+    },
+    filterNotesByPriority(priority) {
+        const newNotesArr = [];
+
+        for(let i=0; i < this.notes.length; i+=1) {
+            if(this.notes[i].priority == priority) {
+                newNotesArr.push(this.notes[i]);
+            }
+        }
+        return newNotesArr;
+
+        /*
+         * Фильтрует массив заметок по значению приоритета
+         * Если значение priority совпадает с приоритетом заметки - она подходит
+         *
+         * Принимает: приоритет для поиска в свойстве priority заметки
+         * Возвращает: новый массив заметок с подходящим приоритетом
+         */
     },
 };
+// Далее идет код для проверки работоспособности объекта, вставь его в конец скрипта. Твоя реализация методов объекта notepad должна проходить этот тест.
 
-// Проверяем исходные значения полей
-console.log(cashier.name); // Mango
-console.log(cashier.customerMoney); // 0
-console.log(cashier.totalPrice); // 0
-console.log(cashier.change); // 0
-console.log(cashier.error); // null
 
-cashier.greet(); // Добрый день, вас обслуживает Mango
+/*
+ * Добавляю 4 заметки и смотрю что получилось
+ */
+notepad.saveNote({
+    id: 'id-1',
+    title: 'JavaScript essentials',
+    body:
+        'Get comfortable with all basic JavaScript concepts: variables, loops, arrays, branching, objects, functions, scopes, prototypes etc',
+    priority: Priority.HIGH,
+});
 
-// Вызываем метод countTotalPrice для подсчета общей суммы
-// передавая products - список всех продуктов и order - список покупок клиента
-cashier.countTotalPrice(products, order);
+notepad.saveNote({
+    id: 'id-2',
+    title: 'Refresh HTML and CSS',
+    body:
+        'Need to refresh HTML and CSS concepts, after learning some JavaScript. Maybe get to know CSS Grid and PostCSS, they seem to be trending.',
+    priority: Priority.NORMAL,
+});
 
-// Проверяем что посчитали
-console.log(cashier.totalPrice); // 110
+notepad.saveNote({
+    id: 'id-3',
+    title: 'Get comfy with Frontend frameworks',
+    body:
+        'First must get some general knowledge about frameworks, then maybe try each one for a week or so. Need to choose between React, Vue and Angular, by reading articles and watching videos.',
+    priority: Priority.NORMAL,
+});
 
-// Вызываем getCustomerMoney для запроса денег клиента
-cashier.getCustomerMoney(300);
+notepad.saveNote({
+    id: 'id-4',
+    title: 'Winter clothes',
+    body:
+        "Winter is coming! Need some really warm clothes: shoes, sweater, hat, jacket, scarf etc. Maybe should get a set of sportwear as well so I'll be able to do some excercises in the park.",
+    priority: Priority.LOW,
+});
 
-// Проверяем что в поле с деньгами клиента
-console.log(cashier.customerMoney); // 300
+console.log('Все текущие заметки: ', notepad.getNotes());
 
-// Вызываем countChange для подсчета сдачи
-cashier.countChange();
+/*
+ * Зима уже близко, пора поднять приоритет на покупку одежды
+ */
+notepad.updateNotePriority('id-4', Priority.NORMAL);
 
-// Проверяем что нам вернул countChange
-console.log(cashier.change); // 190
+console.log(
+    'Заметки после обновления приоритета для id-4: ',
+    notepad.getNotes(),
+);
 
-// Проверяем результат подсчета денег
-if(cashier.error === null) {
-    // При успешном обслуживании вызываем метод onError
-    cashier.onSuccess();
-} else {
-    // При неудачном обслуживании вызываем метод onError
-    cashier.onError(); // Очень жаль, вам не хватает денег на покупку
-}
+/*
+ * Решил что фреймворки отложу немного, понижаю приоритет
+ */
+notepad.updateNotePriority('id-3', Priority.LOW);
 
-// Вызываем reset при любом исходе обслуживания
-cashier.reset();
+console.log(
+    'Заметки после обновления приоритета для id-3: ',
+    notepad.getNotes(),
+);
 
-// Проверяем значения после reset
-console.log(cashier.customerMoney); // 0
-console.log(cashier.totalPrice); // 0
-console.log(cashier.change); // 0
-console.log(cashier.error); // null
+/*
+ * Решил отфильтровать заметки по слову html
+ */
+console.log(
+    'Отфильтровали заметки по ключевому слову "html": ',
+    notepad.filterNotesByQuery('html'),
+);
+
+/*
+ * Решил отфильтровать заметки по слову javascript
+ */
+console.log(
+    'Отфильтровали заметки по ключевому слову "javascript": ',
+    notepad.filterNotesByQuery('javascript'),
+);
+
+/*
+ * Хочу посмотреть только заметки с нормальным приоритетом
+ */
+console.log(
+    'Отфильтровали заметки по нормальному приоритету: ',
+    notepad.filterNotesByPriority(Priority.NORMAL),
+);
+
+/*
+ * Обновим контент заметки с id-3
+ */
+notepad.updateNoteContent('id-3', {
+    title: 'Get comfy with React.js or Vue.js',
+});
+
+console.log(
+    'Заметки после обновления контента заметки с id-3: ',
+    notepad.getNotes(),
+);
+
+/*
+ * Повторил HTML и CSS, удаляю запись c id-2
+ */
+notepad.deleteNote('id-2');
+console.log('Заметки после удаления с id -2: ', notepad.getNotes());
