@@ -4,28 +4,22 @@ const Priority = {
     HIGH: 2,
 };
 const notepad = {
-    notes: []
-    ,
+    notes: [],
+
     getNotes() {
-        const allNotes = [];
-        for(note of this.notes) {
-            for(elemnt of Object.values(note)) {
-                allNotes.push('\n'+elemnt);
-            }
-        }
-        return allNotes.join('');
+        return this.notes;
         /*
          * Принимает: ничего
          * Возвращает: все заметки, значение свойства notes
          */
     },
     findNoteById(id) {
-        for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].id === id) {
-                return this.notes[i].title;
+        for(note of this.notes) {
+            if(note.id == id) {
+                return note;
             }
         }
-        return undefined;
+
         /*
          * Ищет заметку в массиве notes
          *
@@ -46,9 +40,9 @@ const notepad = {
 
     },
     deleteNote(id) {
-        for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].id === id) {
-                this.notes.splice(i, 1);
+        for(note of this.notes) {
+            if(note.id == id) {
+                this.notes.splice(this.notes.indexOf(note),1);
             }
         }
         /*
@@ -60,9 +54,9 @@ const notepad = {
 
     },
     updateNoteContent(id, updatedContent) {
-        for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].id === id) {
-                Object.assign(this.notes[i], updatedContent);
+        for(note of this.notes) {
+            if(note.id == id) {
+                Object.assign(this.notes[this.notes.indexOf(note)], updatedContent);
                 return this.findNoteById(id);
             }
         }
@@ -78,9 +72,9 @@ const notepad = {
 
     },
     updateNotePriority(id, priority) {
-        for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].id === id) {
-                this.notes[i].priority = priority;
+        for(note of this.notes) {
+            if(note.id == id) {
+                this.notes[this.notes.indexOf(note)].priority = priority;
                 return this.findNoteById(id);
             }
         }
@@ -95,14 +89,14 @@ const notepad = {
     filterNotesByQuery(query) {
         const newNotesArr = [];
 
-        for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].title.toLowerCase().split(' ').includes(query.toLowerCase())) {
-                newNotesArr.push(this.notes[i]);
-            } else if(this.notes[i].body.toLowerCase().split(' ').includes(query.toLowerCase())) {
-                newNotesArr.push(this.notes[i]);
+        for(note of this.notes) {
+            if(note.title.toLowerCase().includes(query) || note.body.toLowerCase().includes(query)) {
+                newNotesArr.push(note);
             }
         }
+
         return newNotesArr;
+    
         /*
          * Фильтрует массив заметок по подстроке query.
          * Если значение query есть в заголовке или теле заметки - она подходит
@@ -114,11 +108,12 @@ const notepad = {
     filterNotesByPriority(priority) {
         const newNotesArr = [];
 
-        for(let i=0; i < this.notes.length; i+=1) {
-            if(this.notes[i].priority == priority) {
-                newNotesArr.push(this.notes[i]);
+        for(note of this.notes) {
+            if(note.priority == priority) {
+                newNotesArr.push(note);
             }
         }
+
         return newNotesArr;
 
         /*
