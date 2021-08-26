@@ -90,7 +90,7 @@ const notepad = {
         const newNotesArr = [];
 
         for(note of this.notes) {
-            if(note.title.toLowerCase().includes(query) || note.body.toLowerCase().includes(query)) {
+            if(note.title.toLowerCase().includes(query.toLowerCase()) || note.body.toLowerCase().includes(query.toLowerCase())) {
                 newNotesArr.push(note);
             }
         }
