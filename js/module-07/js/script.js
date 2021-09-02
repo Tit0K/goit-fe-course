@@ -38,7 +38,7 @@ class Notepad {
      */
   }
   deleteNote(id) {
-    this._notes.splice(this._notes.indexOf(this.findNoteById(id)), 1);
+    this._notes.splice(this.findNoteById(id), 1);
     /*
      * Удаляет заметку по идентификатору из массива notes
      *
@@ -47,10 +47,7 @@ class Notepad {
      */
   }
   updateNoteContent(id, updatedContent) {
-    Object.assign(
-      this._notes[this._notes.indexOf(this.findNoteById(id))],
-      updatedContent
-    );
+    Object.assign(this.findNoteById(id), updatedContent);
     return this.findNoteById(id);
 
     /*
@@ -63,7 +60,7 @@ class Notepad {
      */
   }
   updateNotePriority(id, priority) {
-    this._notes[this._notes.indexOf(this.findNoteById(id))].priority = priority;
+    this.findNoteById(id).priority = priority;
     return this.findNoteById(id);
     /*
      * Обновляет приоритет заметки
@@ -73,15 +70,11 @@ class Notepad {
      */
   }
   filterNotesByQuery(query) {
-    return this._notes.reduce((newNotesArr, note) => {
-      if (
+    return this._notes.filter(
+      note =>
         note.title.toLowerCase().includes(query.toLowerCase()) ||
         note.body.toLowerCase().includes(query.toLowerCase())
-      ) {
-        newNotesArr.push(note);
-      }
-      return newNotesArr;
-    }, []);
+    );
 
     /*
      * Фильтрует массив заметок по подстроке query.
@@ -93,7 +86,7 @@ class Notepad {
   }
   filterNotesByPriority(priority) {
     return this._notes.filter(note => note.priority == priority);
-  
+
     /*
      * Фильтрует массив заметок по значению приоритета
      * Если значение priority совпадает с приоритетом заметки - она подходит
