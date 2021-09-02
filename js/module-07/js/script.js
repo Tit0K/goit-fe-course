@@ -38,7 +38,7 @@ class Notepad {
      */
   }
   deleteNote(id) {
-    this._notes.splice(this.findNoteById(id), 1);
+    this._notes = this._notes.filter(note => note.id != id);
     /*
      * Удаляет заметку по идентификатору из массива notes
      *
@@ -47,8 +47,7 @@ class Notepad {
      */
   }
   updateNoteContent(id, updatedContent) {
-    Object.assign(this.findNoteById(id), updatedContent);
-    return this.findNoteById(id);
+    return Object.assign(this.findNoteById(id), updatedContent);
 
     /*
      * Обновляет контент заметки
@@ -60,8 +59,7 @@ class Notepad {
      */
   }
   updateNotePriority(id, priority) {
-    this.findNoteById(id).priority = priority;
-    return this.findNoteById(id);
+    return this.findNoteById(id).priority = priority;
     /*
      * Обновляет приоритет заметки
      *
