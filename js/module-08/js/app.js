@@ -15,6 +15,13 @@ const icons = {
   DELETE: 'delete',
 };
 
+const buttonActions = {
+  DOWN_PRIORITY: 'decrease-priority',
+  UP_PRIORITY: 'decrease-increase',
+  EDIT: 'edit-note',
+  DELETE: 'delete-note',
+};
+
 class Notepad {
   constructor(notes = []) {
     this._notes = notes;
@@ -169,7 +176,7 @@ const createListItem = element => {
 
   const btnDecreasePriority = document.createElement('button');
   btnDecreasePriority.classList.add('action');
-  btnDecreasePriority.dataset.action = 'decrease-priority';
+  btnDecreasePriority.dataset.action = buttonActions.DOWN_PRIORITY;
   btnDecreasePriority.append(iconPriorityMore);
 
   const iconPriorityLess = document.createElement('i');
@@ -179,7 +186,7 @@ const createListItem = element => {
 
   const btnIncreasePriority = document.createElement('button');
   btnIncreasePriority.classList.add('action');
-  btnIncreasePriority.dataset.action = 'decrease-increase';
+  btnIncreasePriority.dataset.action = buttonActions.UP_PRIORITY;
   btnIncreasePriority.append(iconPriorityLess);
 
   const note__priority = document.createElement('span');
@@ -204,7 +211,7 @@ const createListItem = element => {
 
   const editButton = document.createElement('button');
   editButton.classList.add('action');
-  editButton.dataset.action = 'edit-note';
+  editButton.dataset.action = buttonActions.EDIT;
   editButton.append(edit);
 
   const deleteIcon = document.createElement('i');
@@ -213,7 +220,7 @@ const createListItem = element => {
   deleteIcon.textContent = icons.DELETE;
   const btnDelete = document.createElement('button');
   btnDelete.classList.add('action');
-  btnDelete.dataset.action = 'delete-note';
+  btnDelete.dataset.action = buttonActions.DELETE;
   btnDelete.append(deleteIcon);
 
   const note__secondSection = document.createElement('section');
