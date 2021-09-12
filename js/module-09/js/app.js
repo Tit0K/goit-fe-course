@@ -35,8 +35,8 @@ class Notepad {
     return this._notes;
   }
 
-  get lastId() {
-    return notepad._notes.length + 1;
+  get newId() {
+    return this._notes.length + 1;
   }
 
   findNoteById(id) {
@@ -165,22 +165,22 @@ const renderListItem = (notes, refList) => {
   refList.append(...listItem);
 };
 
-const deleteListItem = note => {
-  notepad.deleteNote(note.dataset.id);
+const deleteListItem = (note, model) => {
+  model.deleteNote(note.dataset.id);
   note.remove();
 };
 
-const handleListenListClick = ({ target }) => {
+const handleListenListClick = (notepad, { target }) => {
   if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {
     if (target.closest('.action').dataset.action == 'delete-note') {
-      deleteListItem(target.closest('.note-list__item'));
+      deleteListItem(target.closest('.note-list__item'), notepad);
     }
   }
 };
 
 const handleListenEditorInput = ({ target }) => {
-  if (target.value.length == 0) {
-    target.classList.remove('note-editor__input--ialid');
+  if (target.value.trim().length == 0) {
+    target.classList.remove('note-editor__input--valid');
     target.classList.add('note-editor__input--invalid');
   } else {
     target.classList.remove('note-editor__input--invalid');
@@ -188,12 +188,12 @@ const handleListenEditorInput = ({ target }) => {
   }
 };
 
-const handleListenEditorSubmit = target => {
+const handleListenEditorSubmit = (notepad, target) => {
   target.preventDefault();
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
     const newNote = {
-      id: `id-${notepad.lastId}`,
+      id: `id-${notepad.newId}`,
       title: title.value,
       body: body.value,
       priority: Priority.NORMAL,
@@ -203,12 +203,8 @@ const handleListenEditorSubmit = target => {
   }
 };
 
-const handleListenSearchInput = ({ target }) => {
+const handleListenSearchInput = (notepad, {target}) => {
   renderListItem(notepad.filterNotesByQuery(target.value), refs.list);
-};
-
-const ss = target => {
-  console.log(target);
 };
 
 const notes = [
@@ -241,7 +237,7 @@ const notes = [
 const notepad = new Notepad(notes);
 renderListItem(notepad.notes, refs.list);
 
-refs.list.addEventListener('click', handleListenListClick);
+refs.list.addEventListener('click', handleListenListClick.bind(null, notepad));
 refs.editor.addEventListener('input', handleListenEditorInput);
-refs.editor.addEventListener('submit', handleListenEditorSubmit);
-refs.search.addEventListener('input', handleListenSearchInput);
+refs.editor.addEventListener('submit', handleListenEditorSubmit.bind(null, notepad));
+refs.search.addEventListener('input', handleListenSearchInput.bind(null, notepad));
