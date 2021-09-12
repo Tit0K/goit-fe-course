@@ -255,11 +255,11 @@ textarea {
 }
 
 .note-editor__input--invalid {
-  border-color: red;
+  outline: 1px solid red;
 }
 
-.note-editor__label > .note-editor__input--invalid:focus {
-  border-color: red;
+.note-editor__input--valid {
+  outline: 1px solid greenyellow;
 }
 
 .note-editor__input:focus {

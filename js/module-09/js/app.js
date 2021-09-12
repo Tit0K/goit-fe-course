@@ -180,9 +180,11 @@ const handleListenListClick = ({ target }) => {
 
 const handleListenEditorInput = ({ target }) => {
   if (target.value.length == 0) {
+    target.classList.remove('note-editor__input--ialid');
     target.classList.add('note-editor__input--invalid');
   } else {
     target.classList.remove('note-editor__input--invalid');
+    target.classList.add('note-editor__input--valid');
   }
 };
 
@@ -203,6 +205,10 @@ const handleListenEditorSubmit = target => {
 
 const handleListenSearchInput = ({ target }) => {
   renderListItem(notepad.filterNotesByQuery(target.value), refs.list);
+};
+
+const ss = target => {
+  console.log(target);
 };
 
 const notes = [
