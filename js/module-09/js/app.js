@@ -159,7 +159,7 @@ const createListItem = element => {
   return listItem;
 };
 
-const renderListItem = (notes, refs, refList) => {
+const renderListItem = (notes, refs) => {
   const listItem = notes.map(item => createListItem(item));
   refs.list.innerHTML = '';
   refList.append(...listItem);
@@ -188,7 +188,7 @@ const handleListenEditorInput = ({ target }) => {
   }
 };
 
-const handleListenEditorSubmit = (notepad, target) => {
+const handleListenEditorSubmit = (notepad, target, refs) => {
   target.preventDefault();
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
@@ -199,12 +199,12 @@ const handleListenEditorSubmit = (notepad, target) => {
       priority: Priority.NORMAL,
     };
     notepad.saveNote(newNote);
-    renderListItem(notepad.notes, refs, refs.list);
+    renderListItem(notepad.notes, refs);
   }
 };
 
-const handleListenSearchInput = (notepad, {target}) => {
-  renderListItem(notepad.filterNotesByQuery(target.value), refs, refs.list);
+const handleListenSearchInput = (notepad, {target}, refs) => {
+  renderListItem(notepad.filterNotesByQuery(target.value), refs);
 };
 
 const notes = [
@@ -235,9 +235,9 @@ const notes = [
 ];
 
 const notepad = new Notepad(notes);
-renderListItem(notepad.notes, refs, refs.list);
+renderListItem(notepad.notes, refs);
 
 refs.list.addEventListener('click', handleListenListClick.bind(null, notepad));
 refs.editor.addEventListener('input', handleListenEditorInput);
-refs.editor.addEventListener('submit', handleListenEditorSubmit.bind(null, notepad));
-refs.search.addEventListener('input', handleListenSearchInput.bind(null, notepad));
+refs.editor.addEventListener('submit', handleListenEditorSubmit.bind(null, notepad, refs));
+refs.search.addEventListener('input', handleListenSearchInput.bind(null, notepad, refs));
