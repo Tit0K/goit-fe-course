@@ -162,7 +162,7 @@ const createListItem = element => {
 const renderListItem = (notes, refs) => {
   const listItem = notes.map(item => createListItem(item));
   refs.list.innerHTML = '';
-  refList.append(...listItem);
+  refs.list.append(...listItem);
 };
 
 const deleteListItem = (note, noteId, model) => {
@@ -173,7 +173,11 @@ const deleteListItem = (note, noteId, model) => {
 const handleListenListClick = (notepad, { target }) => {
   if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {
     if (target.closest('.action').dataset.action == 'delete-note') {
-      deleteListItem(target.closest('.note-list__item'), target.closest('.note-list__item').dataset.id, notepad);
+      deleteListItem(
+        target.closest('.note-list__item'),
+        target.closest('.note-list__item').dataset.id,
+        notepad
+      );
     }
   }
 };
@@ -188,7 +192,7 @@ const handleListenEditorInput = ({ target }) => {
   }
 };
 
-const handleListenEditorSubmit = (notepad, target, refs) => {
+const handleListenEditorSubmit = (notepad, refs, target) => {
   target.preventDefault();
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
@@ -203,7 +207,7 @@ const handleListenEditorSubmit = (notepad, target, refs) => {
   }
 };
 
-const handleListenSearchInput = (notepad, {target}, refs) => {
+const handleListenSearchInput = (notepad, refs, { target }) => {
   renderListItem(notepad.filterNotesByQuery(target.value), refs);
 };
 
@@ -239,5 +243,11 @@ renderListItem(notepad.notes, refs);
 
 refs.list.addEventListener('click', handleListenListClick.bind(null, notepad));
 refs.editor.addEventListener('input', handleListenEditorInput);
-refs.editor.addEventListener('submit', handleListenEditorSubmit.bind(null, notepad, refs));
-refs.search.addEventListener('input', handleListenSearchInput.bind(null, notepad, refs));
+refs.editor.addEventListener(
+  'submit',
+  handleListenEditorSubmit.bind(null, notepad, refs)
+);
+refs.search.addEventListener(
+  'input',
+  handleListenSearchInput.bind(null, notepad, refs)
+);
