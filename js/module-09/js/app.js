@@ -159,21 +159,21 @@ const createListItem = element => {
   return listItem;
 };
 
-const renderListItem = (notes, refList) => {
+const renderListItem = (notes, refs, refList) => {
   const listItem = notes.map(item => createListItem(item));
   refs.list.innerHTML = '';
   refList.append(...listItem);
 };
 
-const deleteListItem = (note, model) => {
-  model.deleteNote(note.dataset.id);
+const deleteListItem = (note, noteId, model) => {
+  model.deleteNote(noteId);
   note.remove();
 };
 
 const handleListenListClick = (notepad, { target }) => {
   if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {
     if (target.closest('.action').dataset.action == 'delete-note') {
-      deleteListItem(target.closest('.note-list__item'), notepad);
+      deleteListItem(target.closest('.note-list__item'), target.closest('.note-list__item').dataset.id, notepad);
     }
   }
 };
@@ -199,12 +199,12 @@ const handleListenEditorSubmit = (notepad, target) => {
       priority: Priority.NORMAL,
     };
     notepad.saveNote(newNote);
-    renderListItem(notepad.notes, refs.list);
+    renderListItem(notepad.notes, refs, refs.list);
   }
 };
 
 const handleListenSearchInput = (notepad, {target}) => {
-  renderListItem(notepad.filterNotesByQuery(target.value), refs.list);
+  renderListItem(notepad.filterNotesByQuery(target.value), refs, refs.list);
 };
 
 const notes = [
@@ -235,7 +235,7 @@ const notes = [
 ];
 
 const notepad = new Notepad(notes);
-renderListItem(notepad.notes, refs.list);
+renderListItem(notepad.notes, refs, refs.list);
 
 refs.list.addEventListener('click', handleListenListClick.bind(null, notepad));
 refs.editor.addEventListener('input', handleListenEditorInput);
