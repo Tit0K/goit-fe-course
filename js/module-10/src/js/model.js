@@ -1,3 +1,4 @@
+import { Priority } from './utilities/constants';
 const shortid = require('shortid');
 
 export default class Notepad {
@@ -16,7 +17,13 @@ export default class Notepad {
   findNoteById(id) {
     return this._notes.find((note) => note.id == id);
   }
-  saveNote(note) {
+  saveNote(title, body) {
+    const note = {
+      id: `id-${this.newId}`,
+      title,
+      body,
+      priority: Priority.NORMAL,
+    };
     this._notes.push(note);
     return note;
   }

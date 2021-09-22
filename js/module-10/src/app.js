@@ -1,9 +1,6 @@
 import { Priority, refs, icons, buttonActions } from './js/utilities/constants';
 import notes from './js/notes';
 import Notepad from './js/model';
-import './css/styles.css';
-import './css/normalize.css';
-const img = require('./images/logo.svg');
 import { createListItem, renderListItem, deleteListItem } from './js/render';
 
 const handleListenListClick = (notepad, { target }) => {
@@ -32,13 +29,7 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
   target.preventDefault();
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
-    const newNote = {
-      id: `id-${notepad.newId}`,
-      title: title.value,
-      body: body.value,
-      priority: Priority.NORMAL,
-    };
-    notepad.saveNote(newNote);
+    notepad.saveNote(title.value, body.value);
     renderListItem(notepad.notes, refs);
   }
 };

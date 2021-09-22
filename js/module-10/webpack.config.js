@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: './src/app.js',
@@ -16,25 +17,18 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', {loader: MiniCssExtractPlugin.loader, options: {esModule: false,}}, 'css-loader'],
-      },
-      {
-        test: /\.(svg|png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]',
-        },
-      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      inject: false,
     }),
-    new MiniCssExtractPlugin({
-      filename: 'css/styles.css',
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/images", to: "./images" },
+        { from: "./src/css", to: "./css" },
+      ],
     }),
   ],
 };
