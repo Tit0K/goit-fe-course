@@ -19,7 +19,7 @@ export default class Notepad {
   }
   saveNote(title, body) {
     const note = {
-      id: `id-${this.newId}`,
+      id: this.newId,
       title,
       body,
       priority: Priority.NORMAL,
