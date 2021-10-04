@@ -9,6 +9,17 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _js_app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/app.js */ \"./src/js/app.js\");\n\n\n\n//# sourceURL=webpack://module-10/./src/index.js?");
+
+/***/ }),
+
 /***/ "./src/js/app.js":
 /*!***********************!*\
   !*** ./src/js/app.js ***!
@@ -17,17 +28,6 @@
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utilities_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities/constants */ \"./src/js/utilities/constants.js\");\n/* harmony import */ var _assets_notes_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/notes.json */ \"./src/assets/notes.json\");\n/* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./model */ \"./src/js/model.js\");\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./render */ \"./src/js/render.js\");\n/* harmony import */ var micromodal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! micromodal */ \"./node_modules/micromodal/dist/micromodal.es.js\");\n/* harmony import */ var notyf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! notyf */ \"./node_modules/notyf/notyf.es.js\");\n/* harmony import */ var canvas_confetti__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! canvas-confetti */ \"./node_modules/canvas-confetti/dist/confetti.module.mjs\");\n\n\n\n\n\n\n\nvar notyf = new notyf__WEBPACK_IMPORTED_MODULE_5__.Notyf();\n\nconst handleListenListClick = (notepad, {\n  target\n}) => {\n  if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {\n    if (target.closest('.action').dataset.action == 'delete-note') {\n      (0,_render__WEBPACK_IMPORTED_MODULE_3__.deleteListItem)(target.closest('.note-list__item'), target.closest('.note-list__item').dataset.id, notepad);\n      notyf.error(_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.notifications.ERROR);\n    }\n  }\n};\n\nconst handleListenEditorInput = ({\n  target\n}) => {\n  if (target.value.trim().length == 0) {\n    target.classList.remove('note-editor__input--valid');\n    target.classList.add('note-editor__input--invalid');\n  } else {\n    target.classList.remove('note-editor__input--invalid');\n    target.classList.add('note-editor__input--valid');\n  }\n};\n\nconst handleListenEditorSubmit = (notepad, refs, target) => {\n  target.preventDefault();\n  const [title, body] = target.currentTarget.elements;\n\n  if (title.value.trim() != '' && body.value.trim() != '') {\n    notepad.saveNote(title.value, body.value);\n    (0,_render__WEBPACK_IMPORTED_MODULE_3__.renderListItem)(notepad.notes, refs);\n  }\n};\n\nconst handleListenSearchInput = (notepad, refs, {\n  target\n}) => {\n  (0,_render__WEBPACK_IMPORTED_MODULE_3__.renderListItem)(notepad.filterNotesByQuery(target.value), refs);\n};\n\nconst handleListenOpenEditor = () => {\n  micromodal__WEBPACK_IMPORTED_MODULE_4__[\"default\"].show('note-editor-modal');\n};\n\nconst handleListenCloseEditor = () => {\n  notyf.success(_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.notifications.SUCCESS);\n  micromodal__WEBPACK_IMPORTED_MODULE_4__[\"default\"].close('note-editor-modal');\n  (0,canvas_confetti__WEBPACK_IMPORTED_MODULE_6__[\"default\"])();\n};\n\nconst notepad = new _model__WEBPACK_IMPORTED_MODULE_2__[\"default\"](_assets_notes_json__WEBPACK_IMPORTED_MODULE_1__);\n(0,_render__WEBPACK_IMPORTED_MODULE_3__.renderListItem)(notepad.notes, _utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs);\n_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs.list.addEventListener('click', handleListenListClick.bind(null, notepad));\n_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs.editor.addEventListener('input', handleListenEditorInput);\n_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs.editor.addEventListener('submit', handleListenEditorSubmit.bind(null, notepad, _utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs));\n_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs.search.addEventListener('input', handleListenSearchInput.bind(null, notepad, _utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs));\n_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs.openEditor.addEventListener('click', handleListenOpenEditor);\n_utilities_constants__WEBPACK_IMPORTED_MODULE_0__.refs.closeEditor.addEventListener('submit', handleListenCloseEditor);\n\n//# sourceURL=webpack://module-10/./src/js/app.js?");
-
-/***/ }),
-
-/***/ "./src/js/index.js":
-/*!*************************!*\
-  !*** ./src/js/index.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/main.scss */ \"./src/sass/main.scss\");\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.js */ \"./src/js/app.js\");\n\n\n\n//# sourceURL=webpack://module-10/./src/js/index.js?");
 
 /***/ }),
 
@@ -662,7 +662,7 @@ eval("module.exports = JSON.parse('[{\"id\":\"XWaQXcbk0\",\"title\":\"JavaScript
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;
