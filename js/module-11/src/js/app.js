@@ -1,9 +1,9 @@
-import './sass/main.scss';
-import { Priority, refs, icons, buttonActions, notifications } from './js/utilities/constants';
-import notes from './assets/notes.json';
-import Notepad from './js/model';
-import { createListItem, renderListItem, deleteListItem } from './js/render';
+import { Priority, refs, icons, buttonActions, notifications } from './utilities/constants';
+import notes from '../assets/notes.json';
+import Notepad from './model';
+import { createListItem, renderListItem, deleteListItem } from './render';
 import MicroModal from 'micromodal';
+import { Notyf } from 'notyf';
 
 var notyf = new Notyf();
 

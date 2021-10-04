@@ -4,10 +4,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 const confetti = require('canvas-confetti');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/app.js',
+    filename: 'js/index.js',
   },
 
   module: {
