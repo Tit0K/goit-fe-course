@@ -1,5 +1,4 @@
 import { Priority } from './utilities/constants';
-import templates from './templates/notepad.hbs';
 const shortid = require('shortid');
 
 export default class Notepad {
