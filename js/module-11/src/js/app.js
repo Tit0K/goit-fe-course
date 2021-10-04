@@ -4,6 +4,8 @@ import Notepad from './model';
 import { createListItem, renderListItem, deleteListItem } from './render';
 import MicroModal from 'micromodal';
 import { Notyf } from 'notyf';
+import confetti from 'canvas-confetti';
+
 
 var notyf = new Notyf();
 
