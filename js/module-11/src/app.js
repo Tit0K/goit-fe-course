@@ -15,7 +15,7 @@ const handleListenListClick = (notepad, { target }) => {
         target.closest('.note-list__item').dataset.id,
         notepad
       );
-      notyf.error(notifications.error);
+      notyf.error(notifications.ERROR);
     }
   }
 };
@@ -48,7 +48,7 @@ const handleListenOpenEditor = () => {
 };
 
 const handleListenCloseEditor = () => {
-  notyf.success(notifications.success);
+  notyf.success(notifications.SUCCESS);
   MicroModal.close('note-editor-modal');
   confetti();
 };

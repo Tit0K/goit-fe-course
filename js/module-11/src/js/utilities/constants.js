@@ -27,6 +27,6 @@ export const buttonActions = {
 };
 
 export const notifications = {
-  success: 'Заметка добавлена!',
-  error: 'Заметка удалена',
+  SUCCESS: 'Заметка добавлена!',
+  ERROR: 'Заметка удалена',
 };
