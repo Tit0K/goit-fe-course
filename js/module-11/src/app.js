@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import { Priority, refs, icons, buttonActions } from './js/utilities/constants';
+import { Priority, refs, icons, buttonActions, notifications } from './js/utilities/constants';
 import notes from './assets/notes.json';
 import Notepad from './js/model';
 import { createListItem, renderListItem, deleteListItem } from './js/render';
@@ -15,7 +15,7 @@ const handleListenListClick = (notepad, { target }) => {
         target.closest('.note-list__item').dataset.id,
         notepad
       );
-      notyf.error('Заметка удалена');
+      notyf.error(notifications.error);
     }
   }
 };
@@ -48,8 +48,9 @@ const handleListenOpenEditor = () => {
 };
 
 const handleListenCloseEditor = () => {
-  notyf.success('Заметка добавлена!');
+  notyf.success(notifications.success);
   MicroModal.close('note-editor-modal');
+  confetti();
 };
 
 const notepad = new Notepad(notes);

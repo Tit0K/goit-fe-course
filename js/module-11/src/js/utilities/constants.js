@@ -25,3 +25,8 @@ export const buttonActions = {
   EDIT: 'edit-note',
   DELETE: 'delete-note',
 };
+
+export const notifications = {
+  success: 'Заметка добавлена!',
+  error: 'Заметка удалена',
+};
