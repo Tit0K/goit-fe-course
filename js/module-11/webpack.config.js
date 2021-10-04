@@ -21,12 +21,13 @@ module.exports = {
 
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ],
-      },  
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
 
@@ -36,8 +37,10 @@ module.exports = {
       inject: false,
     }),
     new CopyPlugin({
-      patterns: [{ from: './src/images', to: './images' },
-      { from: './src/css', to: './css' }],
+      patterns: [
+        { from: './src/images', to: './images' },
+        { from: './src/css', to: './css' },
+      ],
     }),
   ],
 };
