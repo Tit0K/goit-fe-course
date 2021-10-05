@@ -10,6 +10,8 @@ export const refs = {
   search: document.querySelector('.search-form'),
   openEditor: document.querySelector("[data-action='open-editor']"),
   closeEditor: document.querySelector("[data-micromodal-close]"),
+  titleEditor: document.querySelector("[name='note_title']"),
+  bodyEditor: document.querySelector("[name='note_body']"),
 };
 
 export const icons = {

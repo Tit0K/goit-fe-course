@@ -27,9 +27,14 @@ const handleListenListClick = (notepad, { target }) => {
     }
 
     if (target.closest('.action').dataset.action == 'edit-note') {
+      const id = target.closest('.note-list__item').dataset.id
       refs.editor.dataset.action = editorActions.EDIT;
-      refs.editor.dataset.noteId =
-        target.closest('.note-list__item').dataset.id;
+      refs.editor.dataset.noteId = id;
+
+      const note = notepad.findNoteById(id);
+      refs.titleEditor.value = note.title;
+      refs.bodyEditor.value = note.body;
+      
       MicroModal.show('note-editor-modal');
     }
   }
@@ -68,8 +73,9 @@ const handleListenSearchInput = (notepad, refs, { target }) => {
   renderListItem(notepad.filterNotesByQuery(target.value), refs);
 };
 
-const handleListenOpenEditor = () => {
+const handleListenOpenEditor = (refs) => {
   refs.editor.dataset.action = editorActions.ADD;
+  refs.editor.reset();
   MicroModal.show('note-editor-modal');
 };
 
@@ -81,7 +87,6 @@ const handleListenListenEditor = (refs) => {
   if (refs.editor.dataset.action == editorActions.EDIT) {
     notyf.success(notifications.UPDATE);
   }
-  refs.editor.reset();
   MicroModal.close('note-editor-modal');
 };
 
@@ -98,7 +103,7 @@ refs.search.addEventListener(
   'input',
   handleListenSearchInput.bind(null, notepad, refs)
 );
-refs.openEditor.addEventListener('click', handleListenOpenEditor);
+refs.openEditor.addEventListener('click', handleListenOpenEditor.bind(null, refs));
 refs.closeEditor.addEventListener(
   'submit',
   handleListenListenEditor.bind(null, refs)
