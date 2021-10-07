@@ -17,7 +17,7 @@ var notyf = new Notyf();
 
 const handleListenListClick = (notepad, { target }) => {
   if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {
-    if (target.closest('.action').dataset.action == 'delete-note') {
+    if (target.closest('.action').dataset.action == buttonActions.DELETE) {
       deleteListItem(
         target.closest('.note-list__item'),
         target.closest('.note-list__item').dataset.id,
@@ -26,7 +26,7 @@ const handleListenListClick = (notepad, { target }) => {
       notyf.error(notifications.ERROR);
     }
 
-    if (target.closest('.action').dataset.action == 'edit-note') {
+    if (target.closest('.action').dataset.action == buttonActions.EDIT) {
       const id = target.closest('.note-list__item').dataset.id
       refs.editor.dataset.action = editorActions.EDIT;
       refs.editor.dataset.noteId = id;
