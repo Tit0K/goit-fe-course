@@ -10,6 +10,7 @@ import Notepad from './model';
 import { createListItem, renderListItem, deleteListItem } from './render';
 import MicroModal from 'micromodal';
 import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 import confetti from 'canvas-confetti';
 
 var notyf = new Notyf();
@@ -30,11 +31,11 @@ const handleListenListClick = (notepad, refs, { target }) => {
       refs.editor.dataset.action = editorActions.EDIT;
       refs.editor.dataset.noteId = id;
 
-      const note = notepad.findNoteById(id);
-      refs.titleEditor.value = note.title;
-      refs.bodyEditor.value = note.body;
-
-      MicroModal.show('note-editor-modal');
+      notepad.findNoteById(id).then((note) => {
+        refs.titleEditor.value = note.title;
+        refs.bodyEditor.value = note.body;
+        MicroModal.show('note-editor-modal');
+      });
     }
 
     if (target.closest('.action').dataset.action == buttonActions.UP_PRIORITY) {
@@ -84,16 +85,22 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
     if (refs.editor.dataset.action == editorActions.ADD) {
-      notepad.saveNote(title.value, body.value);
-      renderListItem(notepad.notes, refs);
+      notepad.saveNote(title.value, body.value).then(() => {
+        notepad.notes.then((allNotes) => {
+          renderListItem(allNotes, refs);
+        });
+      });
     }
 
     if (refs.editor.dataset.action == editorActions.EDIT) {
       notepad.updateNoteContent(refs.editor.dataset.noteId, {
         title: title.value,
         body: body.value,
+      }).then(() => {
+        notepad.notes.then((allNotes) => {
+          renderListItem(allNotes, refs);
+        });
       });
-      renderListItem(notepad.notes, refs);
     }
   }
 };
@@ -120,8 +127,8 @@ const handleListenListenEditor = (refs) => {
 };
 
 const notepad = new Notepad();
-notepad.loadNotes.then(() => {
-  renderListItem(notepad._notes, refs);
+notepad.notes.then((allNotes) => {
+  renderListItem(allNotes, refs);
 });
 
 refs.list.addEventListener(
@@ -145,5 +152,3 @@ refs.closeEditor.addEventListener(
   'submit',
   handleListenListenEditor.bind(null, refs)
 );
-
-

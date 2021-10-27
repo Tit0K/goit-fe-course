@@ -3,18 +3,10 @@ import { Priority } from './utilities/constants';
 const shortid = require('shortid');
 
 export default class Notepad {
-  constructor(notes = []) {
-    this._notes = notes;
-  }
-
-  get loadNotes() {
-    return api.getNotes().then((notes) => {
-      this._notes = notes;
-    });
-  }
-
   get notes() {
-    return this._notes;
+    return api.getNotes().then((result) => {
+      return result.json();
+    });
   }
 
   get newId() {
@@ -22,7 +14,9 @@ export default class Notepad {
   }
 
   findNoteById(id) {
-    return this._notes.find((note) => note.id == id);
+    return this.notes.then((allNotes) => {
+      return allNotes.find((note) => note.id == id);
+    });
   }
   saveNote(title, body) {
     const note = {
@@ -32,33 +26,29 @@ export default class Notepad {
       priority: Priority.NORMAL,
     };
 
-    return api.saveNote(note).then((saveNote) => {
-      this._notes.push(note);
-      return note;
+    return api.saveNote(note).then((saveNotePromise) => {
+      return saveNotePromise;
     });
   }
   deleteNote(id) {
-    return api.deleteNote(id).then(() => {
-      this._notes = this._notes.filter((item) => item.id !== id);
-    });
+    return api.deleteNote(id);
   }
   updateNoteContent(id, updatedNote) {
-    return api.updateNoteContent(id, updatedNote).then((updatedNote) => {
-      this._notes.map((note) => {note.id == updatedNote.id;});
-      return updatedNote;
+    return api.updateNoteContent(id, updatedNote).then((updatedNotePromise) => {
+      return updatedNotePromise;
     });
   }
   updateNotePriority(id, priority) {
-    return this.updateNoteContent(id, {priority: priority});
+    // return this.updateNoteContent(id, { priority: priority });
   }
   filterNotesByQuery(query) {
-    return this._notes.filter(
-      (note) =>
-        note.title.toLowerCase().includes(query.toLowerCase()) ||
-        note.body.toLowerCase().includes(query.toLowerCase())
-    );
+    // return this._notes.filter(
+    //   (note) =>
+    //     note.title.toLowerCase().includes(query.toLowerCase()) ||
+    //     note.body.toLowerCase().includes(query.toLowerCase())
+    // );
   }
   filterNotesByPriority(priority) {
-    return this._notes.filter((note) => note.priority == priority);
+    // return this._notes.filter((note) => note.priority == priority);
   }
 }

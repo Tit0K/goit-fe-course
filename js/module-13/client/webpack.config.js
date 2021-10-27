@@ -1,40 +1,54 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const confetti = require('canvas-confetti');
+const webpackMerge = require('webpack-merge');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'js/index.js',
-  },
+const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
+module.exports = ({ mode = 'production' }) =>
+  webpackMerge(
+    {
+      mode,
+      entry: './src/index.js',
+      output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
       },
-      { test: /\.hbs$/, loader: 'handlebars-loader' },
-
-      {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: 'babel-loader'
+          },
+          {
+            test: /\.html$/,
+            use: 'html-loader'
+          },
+          {
+            test: /\.(gif|png|jpe?g|svg)$/i,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  name: 'images/[name].[ext]',
+                  limit: 5000
+                }
+              }
+            ]
+          },
+          {
+            test: /\.hbs$/,
+            loader: 'handlebars-loader'
+          }
+        ]
       },
-    ],
-  },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      inject: false,
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: './src/images', to: './images' },
-      ],
-    }),
-  ],
-};
+      plugins: [
+        new CleanWebpackPlugin('dist'),
+        new FriendlyErrorsWebpackPlugin(),
+        new WebpackBar()
+      ]
+    },
+    modeConfig(mode)
+  );
