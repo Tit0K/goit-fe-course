@@ -8,6 +8,10 @@ export default class Notepad {
   }
 
   get notes() {
+    return this._notes;
+  }
+
+  get loadNotes() {
     return api.getNotes().then((notes) => {
       this._notes = notes;
       return this._notes;
@@ -19,9 +23,7 @@ export default class Notepad {
   }
 
   findNoteById(id) {
-    return this.notes.then((allNotes) => {
-      return allNotes.find((note) => note.id == id);
-    });
+    return this._notes.find((note) => note.id == id);
   }
   saveNote(title, body) {
     const note = {
@@ -37,9 +39,11 @@ export default class Notepad {
     });
   }
   deleteNote(id) {
+    this._notes = this._notes.filter((note) => note.id != id);
     return api.deleteNote(id);
   }
   updateNoteContent(id, updatedNote) {
+    Object.assign(this.findNoteById(id), updatedNote);
     return api.updateNoteContent(id, updatedNote).then((updatedNotePromise) => {
       return updatedNotePromise;
     });

@@ -31,11 +31,10 @@ const handleListenListClick = (notepad, refs, { target }) => {
       refs.editor.dataset.action = editorActions.EDIT;
       refs.editor.dataset.noteId = id;
 
-      notepad.findNoteById(id).then((note) => {
-        refs.titleEditor.value = note.title;
-        refs.bodyEditor.value = note.body;
-        MicroModal.show('note-editor-modal');
-      });
+      const note = notepad.findNoteById(id);
+      refs.titleEditor.value = note.title;
+      refs.bodyEditor.value = note.body;
+      MicroModal.show('note-editor-modal');
     }
 
     if (target.closest('.action').dataset.action == buttonActions.UP_PRIORITY) {
@@ -85,9 +84,8 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
     if (refs.editor.dataset.action == editorActions.ADD) {
-      notepad.saveNote(title.value, body.value).then(allNotesPromises => {
-        console.log(allNotesPromises);
-        Promise.all(allNotesPromises).then(console.log);
+      notepad.saveNote(title.value, body.value).then((allNotesPromises) => {
+        renderListItem(allNotesPromises, refs);
       });
     }
 
@@ -98,9 +96,7 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
           body: body.value,
         })
         .then(() => {
-          notepad.notes.then((allNotes) => {
-            renderListItem(allNotes, refs);
-          });
+          renderListItem(notepad.notes, refs);
         });
     }
   }
@@ -128,10 +124,8 @@ const handleListenListenEditor = (refs) => {
 };
 
 const notepad = new Notepad();
-notepad.notes.then((note) => {
-  note.json().then((allNotes) => {
-    renderListItem(allNotes, refs);
-  });
+notepad.loadNotes.then((allNotes) => {
+  renderListItem(allNotes, refs);
 });
 
 refs.list.addEventListener(
