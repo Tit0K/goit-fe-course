@@ -33,7 +33,7 @@ export const deleteNote = (id) => {
 
   return fetch(`${URL}/${id}`, options).then((response) => {
     if (response.ok) {
-      return response;
+      return response.json();
     }
     throw new Error('Error while fetching' + response.statusText);
   });
