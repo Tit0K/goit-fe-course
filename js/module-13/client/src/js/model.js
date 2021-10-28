@@ -3,9 +3,14 @@ import { Priority } from './utilities/constants';
 const shortid = require('shortid');
 
 export default class Notepad {
+  constructor(notes = []) {
+    this._notes = notes;
+  }
+
   get notes() {
-    return api.getNotes().then((result) => {
-      return result.json();
+    return api.getNotes().then((notes) => {
+      this._notes = notes;
+      return this._notes;
     });
   }
 
@@ -26,8 +31,9 @@ export default class Notepad {
       priority: Priority.NORMAL,
     };
 
-    return api.saveNote(note).then((saveNotePromise) => {
-      return saveNotePromise;
+    return api.saveNote(note).then(saveNotePromise => {
+      this._notes.push(saveNotePromise);
+      return this._notes;
     });
   }
   deleteNote(id) {

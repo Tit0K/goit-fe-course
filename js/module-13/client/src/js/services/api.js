@@ -9,7 +9,7 @@ export const getNotes = () => {
   });
 };
 
-export const saveNote = (note) => {
+export const saveNote = note => {
   const options = {
     method: 'POST',
     headers: {
@@ -18,7 +18,7 @@ export const saveNote = (note) => {
     body: JSON.stringify(note),
   };
 
-  return fetch(URL, options).then((response) => {
+  return fetch(URL, options).then(response => {
     if (response.ok) {
       return response;
     }

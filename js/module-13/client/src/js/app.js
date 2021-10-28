@@ -85,22 +85,23 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
     if (refs.editor.dataset.action == editorActions.ADD) {
-      notepad.saveNote(title.value, body.value).then(() => {
-        notepad.notes.then((allNotes) => {
-          renderListItem(allNotes, refs);
-        });
+      notepad.saveNote(title.value, body.value).then(allNotesPromises => {
+        console.log(allNotesPromises);
+        Promise.all(allNotesPromises).then(console.log);
       });
     }
 
     if (refs.editor.dataset.action == editorActions.EDIT) {
-      notepad.updateNoteContent(refs.editor.dataset.noteId, {
-        title: title.value,
-        body: body.value,
-      }).then(() => {
-        notepad.notes.then((allNotes) => {
-          renderListItem(allNotes, refs);
+      notepad
+        .updateNoteContent(refs.editor.dataset.noteId, {
+          title: title.value,
+          body: body.value,
+        })
+        .then(() => {
+          notepad.notes.then((allNotes) => {
+            renderListItem(allNotes, refs);
+          });
         });
-      });
     }
   }
 };
@@ -127,8 +128,10 @@ const handleListenListenEditor = (refs) => {
 };
 
 const notepad = new Notepad();
-notepad.notes.then((allNotes) => {
-  renderListItem(allNotes, refs);
+notepad.notes.then((note) => {
+  note.json().then((allNotes) => {
+    renderListItem(allNotes, refs);
+  });
 });
 
 refs.list.addEventListener(
