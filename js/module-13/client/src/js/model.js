@@ -49,16 +49,16 @@ export default class Notepad {
     });
   }
   updateNotePriority(id, priority) {
-    // return this.updateNoteContent(id, { priority: priority });
+    return this.updateNoteContent(id, { priority: priority });
   }
   filterNotesByQuery(query) {
-    // return this._notes.filter(
-    //   (note) =>
-    //     note.title.toLowerCase().includes(query.toLowerCase()) ||
-    //     note.body.toLowerCase().includes(query.toLowerCase())
-    // );
+    return this._notes.filter(
+      (note) =>
+        note.title.toLowerCase().includes(query.toLowerCase()) ||
+        note.body.toLowerCase().includes(query.toLowerCase())
+    );
   }
   filterNotesByPriority(priority) {
-    // return this._notes.filter((note) => note.priority == priority);
+    return this._notes.filter((note) => note.priority == priority);
   }
 }
