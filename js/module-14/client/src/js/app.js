@@ -12,31 +12,38 @@ import MicroModal from 'micromodal';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import confetti from 'canvas-confetti';
+import { saveNote } from './services/api';
 
 var notyf = new Notyf();
 
-const handleDel = (target, notepad, refs) => {
-  deleteListItem(
-    target.closest('.note-list__item'),
-    target.closest('.note-list__item').dataset.id,
-    notepad
-  );
-  notyf.error(notifications.DELETED);
+const deleteNote = (target, notepad, refs) => {
+  try {
+    deleteListItem(
+      target.closest('.note-list__item'),
+      target.closest('.note-list__item').dataset.id,
+      notepad
+    );
+    notyf.error(notifications.DELETED);
+  } catch (err) {
+    throw err;
+  }
 };
 
-const handleEdit = (target, notepad, refs) => {
-  const id = target.closest('.note-list__item').dataset.id;
-
-  refs.editor.dataset.action = editorActions.EDIT;
-  refs.editor.dataset.noteId = id;
-
-  const note = notepad.findNoteById(id);
-  refs.titleEditor.value = note.title;
-  refs.bodyEditor.value = note.body;
-  MicroModal.show('note-editor-modal');
+const editNote = (target, notepad, refs) => {
+  try {
+    const id = target.closest('.note-list__item').dataset.id;
+    refs.editor.dataset.action = editorActions.EDIT;
+    refs.editor.dataset.noteId = id;
+    const note = notepad.findNoteById(id);
+    refs.titleEditor.value = note.title;
+    refs.bodyEditor.value = note.body;
+    MicroModal.show('note-editor-modal');
+  } catch (err) {
+    throw err;
+  }
 };
 
-const handleChangePriority = (type, target, notepad, refs) => {
+const changeNotePriority = (type, target, notepad, refs) => {
   const id = target.closest('.note-list__item').dataset.id;
   const priority = notepad.findNoteById(id).priority;
 
@@ -63,25 +70,41 @@ const handleChangePriority = (type, target, notepad, refs) => {
   }
 };
 
+const addNote = (title, body, notepad, refs) => {
+  try {
+    notepad.saveNote(title.value, body.value).then(() => {
+      renderListItem(notepad.notes, refs);
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
+const changeNote = (title, body, notepad, refs) => {
+  notepad
+    .updateNoteContent(refs.editor.dataset.noteId, {
+      title: title.value,
+      body: body.value,
+    })
+    .then(() => {
+      renderListItem(notepad.notes, refs);
+    });
+};
+
 const handleListenListClick = (notepad, refs, { target }) => {
   if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {
     switch (target.closest('.action').dataset.action) {
       case buttonActions.DELETE:
-        handleDel(target, notepad, refs);
+        deleteNote(target, notepad, refs);
         break;
       case buttonActions.EDIT:
-        handleEdit(target, notepad, refs);
+        editNote(target, notepad, refs);
         break;
       case buttonActions.UP_PRIORITY:
-        handleChangePriority(buttonActions.UP_PRIORITY, target, notepad, refs);
+        changeNotePriority(buttonActions.UP_PRIORITY, target, notepad, refs);
         break;
       case buttonActions.DOWN_PRIORITY:
-        handleChangePriority(
-          buttonActions.DOWN_PRIORITY,
-          target,
-          notepad,
-          refs
-        );
+        changeNotePriority(buttonActions.DOWN_PRIORITY, target, notepad, refs);
         break;
     }
   }
@@ -99,23 +122,16 @@ const handleListenEditorInput = ({ target }) => {
 
 const handleListenEditorSubmit = (notepad, refs, target) => {
   target.preventDefault();
+
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
-    if (refs.editor.dataset.action == editorActions.ADD) {
-      notepad.saveNote(title.value, body.value).then(() => {
-        renderListItem(notepad.notes, refs);
-      });
-    }
-
-    if (refs.editor.dataset.action == editorActions.EDIT) {
-      notepad
-        .updateNoteContent(refs.editor.dataset.noteId, {
-          title: title.value,
-          body: body.value,
-        })
-        .then(() => {
-          renderListItem(notepad.notes, refs);
-        });
+    switch (refs.editor.dataset.action) {
+      case editorActions.ADD:
+        addNote(title, body, notepad, refs);
+        break;
+      case editorActions.EDIT:
+        changeNote(title, body, notepad, refs);
+        break;
     }
   }
 };
