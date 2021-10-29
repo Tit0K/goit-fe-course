@@ -81,14 +81,18 @@ const addNote = (title, body, notepad, refs) => {
 };
 
 const changeNote = (title, body, notepad, refs) => {
-  notepad
-    .updateNoteContent(refs.editor.dataset.noteId, {
-      title: title.value,
-      body: body.value,
-    })
-    .then(() => {
-      renderListItem(notepad.notes, refs);
-    });
+  try {
+    notepad
+      .updateNoteContent(refs.editor.dataset.noteId, {
+        title: title.value,
+        body: body.value,
+      })
+      .then(() => {
+        renderListItem(notepad.notes, refs);
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 
 const handleListenListClick = (notepad, refs, { target }) => {
