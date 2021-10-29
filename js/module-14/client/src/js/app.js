@@ -15,56 +15,74 @@ import confetti from 'canvas-confetti';
 
 var notyf = new Notyf();
 
+const handleDel = (target, notepad, refs) => {
+  deleteListItem(
+    target.closest('.note-list__item'),
+    target.closest('.note-list__item').dataset.id,
+    notepad
+  );
+  notyf.error(notifications.DELETED);
+};
+
+const handleEdit = (target, notepad, refs) => {
+  const id = target.closest('.note-list__item').dataset.id;
+
+  refs.editor.dataset.action = editorActions.EDIT;
+  refs.editor.dataset.noteId = id;
+
+  const note = notepad.findNoteById(id);
+  refs.titleEditor.value = note.title;
+  refs.bodyEditor.value = note.body;
+  MicroModal.show('note-editor-modal');
+};
+
+const handleChangePriority = (type, target, notepad, refs) => {
+  const id = target.closest('.note-list__item').dataset.id;
+  const priority = notepad.findNoteById(id).priority;
+
+  if (type == buttonActions.UP_PRIORITY) {
+    if (priority == Priority.HIGH) {
+      notyf.error(notifications.MAX_PRIORITY);
+    } else {
+      const newPriority = priority + 1;
+      notepad.updateNotePriority(id, newPriority);
+      renderListItem(notepad.notes, refs);
+      notyf.success(notifications.PRIORITY_UPDATE);
+    }
+  }
+
+  if (type == buttonActions.DOWN_PRIORITY) {
+    if (priority == Priority.LOW) {
+      notyf.error(notifications.MIN_PRIORITY);
+    } else {
+      const newPriority = priority - 1;
+      notepad.updateNotePriority(id, newPriority);
+      renderListItem(notepad.notes, refs);
+      notyf.success(notifications.PRIORITY_UPDATE);
+    }
+  }
+};
+
 const handleListenListClick = (notepad, refs, { target }) => {
   if (target.nodeName == 'I' || target.nodeName == 'BUTTON') {
-    if (target.closest('.action').dataset.action == buttonActions.DELETE) {
-      deleteListItem(
-        target.closest('.note-list__item'),
-        target.closest('.note-list__item').dataset.id,
-        notepad
-      );
-      notyf.error(notifications.DELETED);
-    }
-
-    if (target.closest('.action').dataset.action == buttonActions.EDIT) {
-      const id = target.closest('.note-list__item').dataset.id;
-      refs.editor.dataset.action = editorActions.EDIT;
-      refs.editor.dataset.noteId = id;
-
-      const note = notepad.findNoteById(id);
-      refs.titleEditor.value = note.title;
-      refs.bodyEditor.value = note.body;
-      MicroModal.show('note-editor-modal');
-    }
-
-    if (target.closest('.action').dataset.action == buttonActions.UP_PRIORITY) {
-      const id = target.closest('.note-list__item').dataset.id;
-      const priority = notepad.findNoteById(id).priority;
-
-      if (priority == Priority.HIGH) {
-        notyf.error(notifications.MAX_PRIORITY);
-      } else {
-        const newPriority = priority + 1;
-        notepad.updateNotePriority(id, newPriority);
-        renderListItem(notepad.notes, refs);
-        notyf.success(notifications.PRIORITY_UPDATE);
-      }
-    }
-
-    if (
-      target.closest('.action').dataset.action == buttonActions.DOWN_PRIORITY
-    ) {
-      const id = target.closest('.note-list__item').dataset.id;
-      const priority = notepad.findNoteById(id).priority;
-
-      if (priority == Priority.LOW) {
-        notyf.error(notifications.MIN_PRIORITY);
-      } else {
-        const newPriority = priority - 1;
-        notepad.updateNotePriority(id, newPriority);
-        renderListItem(notepad.notes, refs);
-        notyf.success(notifications.PRIORITY_UPDATE);
-      }
+    switch (target.closest('.action').dataset.action) {
+      case buttonActions.DELETE:
+        handleDel(target, notepad, refs);
+        break;
+      case buttonActions.EDIT:
+        handleEdit(target, notepad, refs);
+        break;
+      case buttonActions.UP_PRIORITY:
+        handleChangePriority(buttonActions.UP_PRIORITY, target, notepad, refs);
+        break;
+      case buttonActions.DOWN_PRIORITY:
+        handleChangePriority(
+          buttonActions.DOWN_PRIORITY,
+          target,
+          notepad,
+          refs
+        );
+        break;
     }
   }
 };
@@ -84,8 +102,8 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
   const [title, body] = target.currentTarget.elements;
   if (title.value.trim() != '' && body.value.trim() != '') {
     if (refs.editor.dataset.action == editorActions.ADD) {
-      notepad.saveNote(title.value, body.value).then((allNotesPromises) => {
-        renderListItem(allNotesPromises, refs);
+      notepad.saveNote(title.value, body.value).then(() => {
+        renderListItem(notepad.notes, refs);
       });
     }
 
@@ -125,7 +143,7 @@ const handleListenListenEditor = (refs) => {
 
 const notepad = new Notepad();
 notepad.loadNotes.then((allNotes) => {
-  renderListItem(allNotes, refs);
+  renderListItem(notepad.notes, refs);
 });
 
 refs.list.addEventListener(
