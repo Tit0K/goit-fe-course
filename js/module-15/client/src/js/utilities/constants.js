@@ -1,43 +1,42 @@
-export const Priority = {
+export const PRIORITY = {
   LOW: 0,
   NORMAL: 1,
   HIGH: 2,
 };
 
-export const refs = {
+export const PRIORITY_NAMES = {
+  0: 'Low',
+  1: 'Normal',
+  2: 'Hight',
+};
+
+export const REFS = {
   list: document.querySelector('.note-list'),
   editor: document.querySelector('.note-editor'),
   search: document.querySelector('.search-form'),
   openEditor: document.querySelector("[data-action='open-editor']"),
-  closeEditor: document.querySelector("[data-micromodal-close]"),
+  closeEditor: document.querySelector('[data-micromodal-close]'),
   titleEditor: document.querySelector("[name='note_title']"),
   bodyEditor: document.querySelector("[name='note_body']"),
 };
 
-export const icons = {
-  ARROW_DOWN: 'expand_more',
-  ARROW_UP: 'expand_less',
-  EDIT: 'edit',
-  DELETE: 'delete',
-};
-
-export const buttonActions = {
+export const BUTTON_ACTIONS = {
   DOWN_PRIORITY: 'decrease-priority',
   UP_PRIORITY: 'decrease-increase',
   EDIT: 'edit-note',
   DELETE: 'delete-note',
 };
 
-export const notifications = {
+export const NOTIFICATIONS = {
   SUCCESS: 'Заметка добавлена!',
   DELETED: 'Заметка удалена',
   UPDATE: 'Заметка успешно обновлена',
   MAX_PRIORITY: 'Заметка уже имеет максимальный приоритет',
   MIN_PRIORITY: 'Заметка уже имеет минимальный приоритет',
-  PRIORITY_UPDATE: 'Приоритет обновлен', 
+  PRIORITY_UPDATE: 'Приоритет обновлен',
 };
 
-export const editorActions = {
+export const EDITOR_ACTIONS = {
   ADD: 'add',
   EDIT: 'edit',
 };

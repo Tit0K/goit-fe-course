@@ -1,5 +1,5 @@
 import * as api from './services/api';
-import { Priority } from './utilities/constants';
+import { PRIORITY, PRIORITY_NAMES } from './utilities/constants';
 const shortid = require('shortid');
 
 export default class Notepad {
@@ -22,18 +22,23 @@ export default class Notepad {
     return shortid.generate();
   }
 
+  reloadModel(newModel) {
+    this._notes = newModel;
+  }
+
   findNoteById(id) {
     return this._notes.find((note) => note.id == id);
   }
+
   saveNote(title, body) {
     const note = {
       id: this.newId,
       title,
       body,
-      priority: Priority.NORMAL,
+      priority: PRIORITY.NORMAL,
     };
 
-    return api.saveNote(note).then(saveNotePromise => {
+    return api.saveNote(note).then((saveNotePromise) => {
       this._notes.push(saveNotePromise);
       return saveNotePromise;
     });
