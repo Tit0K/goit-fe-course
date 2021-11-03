@@ -151,7 +151,10 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
 
 const handleListenSearchInput = (notepad, refs, target) => {
   renderListItem(notepad.filterNotesByQuery(target.path[0].value), refs);
-  if(target.key === 'Enter') {
+};
+
+const handleListenSearchInputEnter = (target) => {
+  if (target.key === 'Enter') {
     target.preventDefault();
   }
 };
@@ -188,8 +191,12 @@ REFS.editor.addEventListener(
   handleListenEditorSubmit.bind(null, notepad, REFS)
 );
 REFS.search.addEventListener(
-  'keypress',
+  'input',
   handleListenSearchInput.bind(null, notepad, REFS)
+);
+REFS.search.addEventListener(
+  'keypress',
+  handleListenSearchInputEnter.bind(null)
 );
 REFS.openEditor.addEventListener(
   'click',
