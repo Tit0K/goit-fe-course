@@ -5,9 +5,9 @@ export const PRIORITY = {
 };
 
 export const PRIORITY_NAMES = {
-  0: 'Low',
-  1: 'Normal',
-  2: 'Hight',
+  0: 'LOW',
+  1: 'NORMAL',
+  2: 'HIGH',
 };
 
 export const REFS = {

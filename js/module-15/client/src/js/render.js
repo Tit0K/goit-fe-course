@@ -6,15 +6,18 @@ const changePriorityName = (note) => {
   return note;
 };
 
-const saveOldArray = (model) => {
-  let temp = model.notes.slice();
-  temp = JSON.stringify(temp);
-  temp = JSON.parse(temp);
-  return temp;
-};
-
-const reloadModel = (oldArray, model) => {
-  model.reloadModel(oldArray);
+const refactorPriority = (data) => {
+  if (data.length === undefined) {
+    data.priority = PRIORITY[data.priority];
+    return data;
+  } else {
+    return Object.assign(
+      data.map((item) => {
+        return (item.priority = PRIORITY[item.priority]);
+      }),
+      data
+    );
+  }
 };
 
 export const createListItem = (element) => {
@@ -22,31 +25,18 @@ export const createListItem = (element) => {
   return templates(element);
 };
 
-export const renderListItem = (notes, refs, model) => {
+export const renderListItem = (notes, refs) => {
   const sortByPriority = (a, b) => b.priority - a.priority;
   notes.sort(sortByPriority);
-
-  // ------------------------------------
-  const savedArray = saveOldArray(model);
-  // ------------------------------------
-
   const listItem = notes.map((item) => createListItem(item)).join('');
   refs.list.innerHTML = '';
   refs.list.insertAdjacentHTML('beforeend', listItem);
-
-  // ------------------------------------
-  reloadModel(savedArray, model);
-  // ------------------------------------
+  refactorPriority(notes);
 };
 
-export const addListItem = (note, refs, model) => {
-  const savedArray = saveOldArray(model);
-  // ------------------------------------
-
+export const addListItem = (note, refs) => {
   refs.list.insertAdjacentHTML('beforeend', createListItem(note));
-
-  // ------------------------------------
-  reloadModel(savedArray, model);
+  refactorPriority(note);
 };
 
 export const deleteListItem = (note, noteId, model) => {

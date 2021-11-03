@@ -75,14 +75,14 @@ const downNotePriority = (target, notepad, refs) => {
 
 const updateNotePriority = (id, newPriority, refs) => {
   notepad.updateNotePriority(id, newPriority);
-  renderListItem(notepad.notes, refs, notepad);
+  renderListItem(notepad.notes, refs);
   notyf.success(NOTIFICATIONS.PRIORITY_UPDATE);
 };
 
 const addNote = (title, body, notepad, refs) => {
   try {
     notepad.saveNote(title.value, body.value).then((addedNote) => {
-      addListItem(addedNote, refs, notepad);
+      addListItem(addedNote, refs);
     });
   } catch (err) {
     throw err;
@@ -97,7 +97,7 @@ const changeNote = (title, body, notepad, refs) => {
         body: body.value,
       })
       .then(() => {
-        renderListItem(notepad.notes, refs, notepad);
+        renderListItem(notepad.notes, refs);
       });
   } catch (err) {
     throw err;
@@ -150,9 +150,9 @@ const handleListenEditorSubmit = (notepad, refs, target) => {
 };
 
 const handleListenSearchInput = (notepad, refs, target) => {
+  renderListItem(notepad.filterNotesByQuery(target.path[0].value), refs);
   if(target.key === 'Enter') {
     target.preventDefault();
-    renderListItem(notepad.filterNotesByQuery(target.path[0].value), refs, notepad);
   }
 };
 
@@ -175,7 +175,7 @@ const handleListenListenEditor = (refs) => {
 
 const notepad = new Notepad();
 notepad.loadNotes.then(() => {
-  renderListItem(notepad.notes, REFS, notepad);
+  renderListItem(notepad.notes, REFS);
 });
 
 REFS.list.addEventListener(

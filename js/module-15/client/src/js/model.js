@@ -22,10 +22,6 @@ export default class Notepad {
     return shortid.generate();
   }
 
-  reloadModel(newModel) {
-    this._notes = newModel;
-  }
-
   findNoteById(id) {
     return this._notes.find((note) => note.id == id);
   }
